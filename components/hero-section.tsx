@@ -11,9 +11,12 @@ export default function HeroSection() {
         Transformez la valeur de votre offre en croissance concrète.
       </p>
 
-      <Button className="mt-8 px-8 py-3 bg-orange-500 hover:bg-orange-600 text-white font-bold rounded-full transition-all duration-300 shadow-lg transform hover:scale-105">
+      <a
+        href="mailto:contact@facility-web.com"
+        className="mt-8 inline-block px-8 py-3 bg-orange-500 hover:bg-orange-600 text-white font-bold rounded-full transition-all duration-300 shadow-lg transform hover:scale-105"
+      >
         Découvrir mon approche
-      </Button>
+      </a>
     </div>
   );
 }
