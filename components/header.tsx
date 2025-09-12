@@ -1,6 +1,7 @@
 import React from "react";
 import PageContainer from "./page-container";
 import { HeaderNavigation } from "./header-navigation";
+import ResponsiveMenu from "./responsive-menu";
 
 export default function Header() {
   return (
@@ -11,7 +12,10 @@ export default function Header() {
             facility-web
           </h1>
           {/* Menu de navigation */}
-          <HeaderNavigation />
+          <div className="flex items-center">
+            <HeaderNavigation />
+            <ResponsiveMenu />
+          </div>
         </div>
       </PageContainer>
     </header>

@@ -13,7 +13,7 @@ import {
 
 export function HeaderNavigation() {
   return (
-    <NavigationMenu viewport={false}>
+    <NavigationMenu viewport={false} className="hidden sm:block">
       <NavigationMenuList>
         <NavigationMenuItem>
           <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
