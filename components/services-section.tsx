@@ -11,8 +11,16 @@ export default function ServicesSection() {
         </p>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           <CardServices
-            title="Description de l'offre"
-            content="La description de mon offre"
+            title="Définition de l'offre"
+            content="Identifiez ce qui rend votre produit unique et comment il se positionne face à la concurrence"
+            imageUrl="/assets/images/definir-offre.png"
+            alt="icône représentant un produit en dessous d'une loupe"
+          />
+          <CardServices
+            title="Création de valeur"
+            content="Construisez une image de marque forte et communiquez la valeur perçue de votre offre"
+            imageUrl="/assets/images/creation-valeur.png"
+            alt="icône représentant un diamant au creux d'une main"
           />
         </div>
       </div>
