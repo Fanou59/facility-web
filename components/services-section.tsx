@@ -10,7 +10,10 @@ export default function ServicesSection() {
           Nous vous proposons une approche complète pour maîtriser votre marché.
         </p>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <CardServices />
+          <CardServices
+            title="Description de l'offre"
+            content="La description de mon offre"
+          />
         </div>
       </div>
     </div>

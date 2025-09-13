@@ -6,26 +6,29 @@ import {
   CardContent,
   CardFooter,
 } from "./ui/card";
+import Link from "next/link";
 
-export default function CardServices() {
+type CardServicesProps = {
+  title: string;
+  content: string;
+};
+
+export default function CardServices({ title, content }: CardServicesProps) {
   return (
     <Card className="shadow-lg transform hover:scale-105 transition-transform duration-300">
       <CardHeader>
-        <CardTitle>Définition d'Offre</CardTitle>
+        <CardTitle>{title}</CardTitle>
       </CardHeader>
       <CardContent>
-        <p className="text-gray-600 text-sm">
-          Identifiez ce qui rend votre produit unique et comment il se
-          positionne face à la concurrence.
-        </p>
+        <p className="text-gray-600 text-sm">{content}</p>
       </CardContent>
       <CardFooter className="justify-end">
-        <a
-          href="mailto:contact@facility-web.com"
+        <Link
+          href="/mes-services"
           className="mt-8 inline-block px-8 py-3 bg-orange-500 hover:bg-orange-600 text-white font-bold rounded-full transition-all duration-300 shadow-lg transform hover:scale-105"
         >
           En savoir plus
-        </a>
+        </Link>
       </CardFooter>
     </Card>
   );
