@@ -6,14 +6,14 @@ import { useRouter } from "next/navigation";
 
 type CardServicesProps = {
   title: string;
-  content: string;
+  description: string;
   imageUrl: string;
   alt: string;
 };
 
 export default function CardServices({
   title,
-  content,
+  description,
   imageUrl,
   alt,
 }: CardServicesProps) {
@@ -31,7 +31,7 @@ export default function CardServices({
         <CardTitle>{title}</CardTitle>
       </CardHeader>
       <CardContent>
-        <p className="text-gray-600 text-sm">{content}</p>
+        <p className="text-gray-600 text-sm">{description}</p>
       </CardContent>
     </Card>
   );

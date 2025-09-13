@@ -1,5 +1,6 @@
 import React from "react";
 import CardServices from "./card-services";
+import { services } from "@/data/services";
 
 export default function ServicesSection() {
   return (
@@ -10,18 +11,15 @@ export default function ServicesSection() {
           Nous vous proposons une approche complète pour maîtriser votre marché.
         </p>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <CardServices
-            title="Définition de l'offre"
-            content="Identifiez ce qui rend votre produit unique et comment il se positionne face à la concurrence"
-            imageUrl="/assets/images/definir-offre.png"
-            alt="icône représentant un produit en dessous d'une loupe"
-          />
-          <CardServices
-            title="Création de valeur"
-            content="Construisez une image de marque forte et communiquez la valeur perçue de votre offre"
-            imageUrl="/assets/images/creation-valeur.png"
-            alt="icône représentant un diamant au creux d'une main"
-          />
+          {services.map((service) => (
+            <CardServices
+              key={service.id}
+              title={service.title}
+              description={service.description}
+              imageUrl={service.imageUrl}
+              alt={service.alt}
+            />
+          ))}
         </div>
       </div>
     </div>
