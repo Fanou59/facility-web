@@ -4,9 +4,9 @@ import React from "react";
 export default function ProfilSection() {
   return (
     <section className="container px-6 flex flex-col md:flex-row items-center justify-center gap-12 py-16 md:py-24">
-      <div className="w-32 h-32 md:w-48 md:h-48 rounded-full overflow-hidden flex-shrink-0">
+      <div className="w-32 h-32 md:w-48 md:h-48 rounded-full overflow-hidden flex-shrink-0 p-3">
         <Image
-          className="w-full h-full object-cover scale-100"
+          className="w-full h-full scale-150 object-cover"
           src="/assets/images/Profil-steph.png"
           height={400}
           width={400}
