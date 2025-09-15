@@ -31,6 +31,13 @@ const timelineData: TimelineItemType[] = [
       "J’ai dirigé le développement des lampes frontales pour le trail running, avec pour objectif de concevoir des produits performants, ergonomiques et robustes.",
     time: "Juin 2021",
   },
+  {
+    id: 4,
+    title: "Directeur marketing",
+    description:
+      "J’ai piloté la stratégie de communication pour renforcer la notoriété de la marque et soutenir ses objectifs commerciaux.",
+    time: "Janvier 2020",
+  },
 ];
 
 export const TimelineLayout = () => {
