@@ -7,8 +7,6 @@ export default function CvSection() {
         <h2 className="text-3xl font-bold text-center text-gray-900 mb-12">
           Mon parcours
         </h2>
-
-        <div className="absolute left-1/2 -translate-x-1/2 top-12 h-[calc(100%-3rem)] w-1 bg-gray-300"></div>
       </div>
     </section>
   );
