@@ -26,7 +26,7 @@ export const detailServices = [
     },
   },
   {
-    id: 2,
+    id: 3,
     title: "Stratégie de contenu",
     description:
       "Le contenu est le moteur de votre visibilité. J'élabore un **plan de contenu** qui s'adresse directement à votre audience cible, en utilisant les bons messages, formats et canaux.",
