@@ -19,13 +19,15 @@ export default function Section({
 }: SectionProps) {
   return (
     <section className={`${bgColor} py-16 md:py-24`}>
-      <div className="container mx-auto px-6 max-w-4xl relative min-h-[300px] flex flex-col justify-center">
-        <h2 className={`text-3xl font-bold ${titleColor} mb-12 text-center`}>
+      <div className="container mx-auto max-w-4xl relative min-h-[300px] flex flex-col justify-center">
+        <h2
+          className={`text-3xl md:text-5xl lg:text-6xlfont-bold ${titleColor} mb-12 text-center`}
+        >
           {title}
         </h2>
         {description && (
           <p
-            className={`${descriptionColor} max-w-2xl mx-auto mb-12 text-center`}
+            className={`${descriptionColor} max-w-2xl mx-auto mb-12 text-center text-lg`}
           >
             {description}
           </p>
