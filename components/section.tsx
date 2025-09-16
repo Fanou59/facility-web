@@ -6,7 +6,7 @@ type SectionProps = {
   description?: string;
   titleColor?: string;
   descriptionColor?: string;
-  children: React.ReactNode;
+  children?: React.ReactNode;
 };
 
 export default function Section({

@@ -3,7 +3,6 @@ import PageContainer from "@/components/page-container";
 import Section from "@/components/section";
 import { detailServices } from "@/data/detail-service";
 
-import React from "react";
 import ContactSection from "@/components/contact-section";
 
 export default function MesServices() {
@@ -15,9 +14,7 @@ export default function MesServices() {
         titleColor="text-white"
         description="Je vous aide à construire une stratégie marketing solide, étape par étape."
         descriptionColor="text-slate-300"
-      >
-        Test
-      </Section>
+      ></Section>
       <Section
         title="Mon expertise au service de votre croissance"
         bgColor="bg-slate-100"
