@@ -2,7 +2,7 @@ import React from "react";
 
 type SectionProps = {
   title: string;
-  bgColor: string;
+  bgColor?: string;
   description?: string;
   titleColor?: string;
   descriptionColor?: string;
@@ -14,7 +14,7 @@ export default function Section({
   titleColor = "text-gray-900",
   descriptionColor = "text-gray-600",
   children,
-  bgColor,
+  bgColor = "",
   description,
 }: SectionProps) {
   return (
