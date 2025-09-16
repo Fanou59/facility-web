@@ -3,7 +3,6 @@ import ProfilSection from "@/components/profil-section";
 import Section from "@/components/section";
 import { TimelineLayout } from "@/components/timeline-layout";
 import { Badge } from "@/components/ui/badge";
-import React from "react";
 
 export default function QuiSuisJe() {
   return (
@@ -13,7 +12,7 @@ export default function QuiSuisJe() {
         <TimelineLayout />
       </Section>
       <Section title="Mon expertise">
-        <div className="flex flex-wrap justify-center gap-4">
+        <div className="flex flex-wrap justify-center gap-4 max-w-2xl mx-auto">
           <Badge>Stratégie marketing</Badge>
           <Badge>Stratégie de contenu</Badge>
           <Badge>Création de valeur</Badge>
