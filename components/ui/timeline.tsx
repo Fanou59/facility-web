@@ -43,13 +43,27 @@ const TimelineTitle = React.forwardRef<
 >(({ className, children, ...props }, ref) => (
   <div
     ref={ref}
-    className={cn("text-xl font-bold text-primary", className)}
+    className={cn("text-xl font-bold text-gray-900", className)}
     {...props}
   >
     {children}
   </div>
 ));
 TimelineTitle.displayName = "TimelineTitle";
+
+const TimelineSubTitle = React.forwardRef<
+  HTMLDivElement,
+  React.HTMLAttributes<HTMLDivElement>
+>(({ className, children, ...props }, ref) => (
+  <div
+    ref={ref}
+    className={cn("text-base text-gray-600", className)}
+    {...props}
+  >
+    {children}
+  </div>
+));
+TimelineSubTitle.displayName = "TimelineSubTitle";
 
 const TimelineTime = ({
   className,
@@ -89,5 +103,6 @@ export {
   TimelineHeader,
   TimelineTime,
   TimelineTitle,
+  TimelineSubTitle,
   TimelineDescription,
 };
