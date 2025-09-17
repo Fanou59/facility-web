@@ -51,15 +51,13 @@ export function ContactForm() {
   }
   if (sent) {
     return (
-      <div className="p-8 bg-green-50 border border-green-200 rounded-lg text-green-900 text-center space-y-4">
-        <h2 className="text-2xl font-bold">
-          Merci, votre message a bien été envoyé !
-        </h2>
+      <div className="p-8 bg-accent border border-accent-foreground rounded-lg text-accent-foreground text-center space-y-4">
+        <h2 className="text-2xl font-bold">Message envoyé !</h2>
         <p>
-          Je vous répondrai dans les plus brefs délais.
+          Pour passer à l'action sans attendre, je vous invite à prendre
+          rendez-vous directement via le calendrier ci-dessous.
           <br />
-          En attendant, vous pouvez toujours prendre rendez-vous via le widget
-          ci-dessus.
+          Au plaisir d'échanger avec vous.
         </p>
       </div>
     );
