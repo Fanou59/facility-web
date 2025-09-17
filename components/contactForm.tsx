@@ -29,11 +29,11 @@ export function ContactForm() {
   });
 
   async function onSubmit(values: z.infer<typeof contactFormSchema>) {
-    // Étape 4 : Envoi des données
-    console.log(values); // Affiche les données validées
-
-    // Ici, tu appelleras ton API route ou ta Server Action
-    // const response = await fetch('/api/contact', { ... });
+    const response = await fetch("/api/contact", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(values),
+    });
   }
 
   return (
