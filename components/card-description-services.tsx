@@ -1,14 +1,13 @@
-import React from "react";
-import { Card, CardHeader, CardTitle, CardContent } from "./ui/card";
 import Image from "next/image";
 import SyntheseService from "./synthese-service";
+import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
 
 type CardDescriptionServicesProps = {
   title: string;
   description: string;
   imageUrl: string;
   alt: string;
-  synthese: Record<string, string>;
+  synthese: string[] | null;
 };
 export default function CardDescriptionServices({
   title,

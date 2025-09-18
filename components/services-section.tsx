@@ -1,9 +1,11 @@
-import React from "react";
+import { prisma } from "@/lib/connect";
 import CardServices from "./card-services";
-import { services } from "@/data/services";
+// import { services } from "@/data/services";
 import Section from "./section";
 
-export default function ServicesSection() {
+export default async function ServicesSection() {
+  const services = await prisma.services.findMany();
+
   return (
     <Section
       title="Nos services"

@@ -1,11 +1,13 @@
 import CardDescriptionServices from "@/components/card-description-services";
 import PageContainer from "@/components/page-container";
 import Section from "@/components/section";
-import { detailServices } from "@/data/detail-service";
+import { prisma } from "@/lib/connect";
+// import { detailServices } from "@/data/detail-service";
 
 import ContactSection from "@/components/contact-section";
 
-export default function MesServices() {
+export default async function MesServices() {
+  const detailServices = await prisma.detailServices.findMany();
   return (
     <PageContainer>
       <Section
@@ -27,7 +29,7 @@ export default function MesServices() {
               description={detailService.description}
               imageUrl={detailService.imageUrl}
               alt={detailService.alt}
-              synthese={detailService.synthese}
+              synthese={detailService.synthese as string[] | null}
             />
           ))}
         </div>
