@@ -1,8 +1,8 @@
-import type { Metadata } from "next";
-import { Geist, Geist_Mono, Montserrat, Inter } from "next/font/google";
-import "./globals.css";
-import Header from "@/components/header";
 import Footer from "@/components/footer";
+import Header from "@/components/header";
+import type { Metadata } from "next";
+import { Inter, Montserrat } from "next/font/google";
+import "./globals.css";
 
 const montserrat = Montserrat({
   variable: "--font-montserrat",
@@ -25,7 +25,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="fr">
       <body
         className={`${montserrat.variable} ${inter.variable} antialiased bg-slate-50 text-slate-800`}
       >
