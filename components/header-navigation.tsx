@@ -1,7 +1,7 @@
 "use client";
 
-import * as React from "react";
 import Link from "next/link";
+import * as React from "react";
 
 import {
   NavigationMenu,
@@ -34,6 +34,12 @@ export function HeaderNavigation() {
         <NavigationMenuItem>
           <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
             <Link href="/contact">Contact</Link>
+          </NavigationMenuLink>
+        </NavigationMenuItem>
+        {/* Cette partie Admin sera conditionée au login de l'admin */}
+        <NavigationMenuItem>
+          <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
+            <Link href="/admin">Admin</Link>
           </NavigationMenuLink>
         </NavigationMenuItem>
       </NavigationMenuList>
