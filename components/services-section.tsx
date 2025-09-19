@@ -5,7 +5,7 @@ import Section from "./section";
 
 export default async function ServicesSection() {
   const services = await prisma.services.findMany();
-
+  // il faut remplacer description par résumé une fois les modifications en db réalisées
   return (
     <Section
       title="Nos services"

@@ -5,6 +5,8 @@ import { NextResponse } from "next/server";
 //   const services = await prisma.services.findMany();
 //   return NextResponse.json(services, { status: 200 });
 // }
+
+// Modifiction de detailServices vers Services un fois les modification en db faites
 export async function POST(request: Request) {
   const data = await request.json();
   const newService = await prisma.detailServices.create({

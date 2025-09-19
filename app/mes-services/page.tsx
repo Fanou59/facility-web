@@ -4,6 +4,8 @@ import Section from "@/components/section";
 import { prisma } from "@/lib/connect";
 // import { detailServices } from "@/data/detail-service";
 
+// il faut remplacer detailService par service
+
 import ContactSection from "@/components/contact-section";
 
 export default async function MesServices() {
