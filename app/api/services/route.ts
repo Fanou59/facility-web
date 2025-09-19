@@ -6,12 +6,12 @@ import { NextResponse } from "next/server";
 //   return NextResponse.json(services, { status: 200 });
 // }
 
-// Modifiction de detailServices vers Services un fois les modification en db faites
 export async function POST(request: Request) {
   const data = await request.json();
-  const newService = await prisma.detailServices.create({
+  const newService = await prisma.services.create({
     data: {
       title: data.title,
+      resume: data.resume,
       description: data.description,
       imageUrl: data.imageUrl,
       alt: data.alt,
@@ -22,6 +22,6 @@ export async function POST(request: Request) {
 }
 
 export async function GET() {
-  const services = await prisma.detailServices.findMany();
+  const services = await prisma.services.findMany();
   return NextResponse.json(services, { status: 200 });
 }

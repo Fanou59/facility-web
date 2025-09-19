@@ -6,14 +6,14 @@ import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
 //Modifier description par résumé
 type CardServicesProps = {
   title: string;
-  description: string;
+  resume: string;
   imageUrl: string;
   alt: string;
 };
 
 export default function CardServices({
   title,
-  description,
+  resume,
   imageUrl,
   alt,
 }: CardServicesProps) {
@@ -31,7 +31,7 @@ export default function CardServices({
         <CardTitle>{title}</CardTitle>
       </CardHeader>
       <CardContent>
-        <p className="text-gray-600 text-sm">{description}</p>
+        <p className="text-gray-600 text-sm">{resume}</p>
       </CardContent>
     </Card>
   );

@@ -9,7 +9,7 @@ import { prisma } from "@/lib/connect";
 import ContactSection from "@/components/contact-section";
 
 export default async function MesServices() {
-  const detailServices = await prisma.detailServices.findMany();
+  const detailServices = await prisma.services.findMany();
   return (
     <PageContainer>
       <Section

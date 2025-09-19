@@ -17,11 +17,13 @@ import {
 import { Input } from "../ui/input";
 import { Textarea } from "../ui/textarea";
 
+//Il faudra ajouter un champ résumé
 export default function AddFormService() {
   const form = useForm<z.infer<typeof addServiceSchema>>({
     resolver: zodResolver(addServiceSchema),
     defaultValues: {
       title: "",
+      resume: "",
       description: "",
       imageUrl: "",
       alt: "",
@@ -49,9 +51,9 @@ export default function AddFormService() {
         onSubmit={form.handleSubmit((data) => {
           mutation.mutate(data);
         })}
-        className="space-y-8"
+        className="w-1/2 mx-auto space-y-8"
       >
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="flex flex-col gap-6">
           <FormField
             control={form.control}
             name="title"
@@ -77,6 +79,23 @@ export default function AddFormService() {
                 <FormControl>
                   <Textarea
                     placeholder="Détaillez le service"
+                    {...field}
+                    className="min-h-[150px]"
+                  />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          <FormField
+            control={form.control}
+            name="resume"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Résumé du service</FormLabel>
+                <FormControl>
+                  <Textarea
+                    placeholder="Résumé le service"
                     {...field}
                     className="min-h-[150px]"
                   />

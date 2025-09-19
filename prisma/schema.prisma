@@ -15,22 +15,12 @@ datasource db {
 }
 
 // ajout des modèles
-// Modifier le champ Services, ajouter les champs de DetailServices
-// Ajouter un champ résumé à la table Services
 model Services{
   id Int @id @default(autoincrement())
   title String
+  resume String @db.Text @default("")
   description String @db.Text
   imageUrl String
   alt String
-}
-
-// Supprimer le modèle DetailServices
-model DetailServices{
-  id Int @id @default(autoincrement())
-  title String
-  description String @db.Text
-  imageUrl String
-  alt String
-  synthese Json
+  synthese Json @default("{}")
 }
