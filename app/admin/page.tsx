@@ -6,7 +6,6 @@ export default function AdminPage() {
     <PageContainer>
       <h2>Ajouter un service</h2>
       <AddFormService />
-      <h2>Modifier un service</h2>
     </PageContainer>
   );
 }

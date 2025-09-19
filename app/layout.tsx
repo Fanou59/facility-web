@@ -2,6 +2,7 @@ import Footer from "@/components/footer";
 import Header from "@/components/header";
 import type { Metadata } from "next";
 import { Inter, Montserrat } from "next/font/google";
+import { Toaster } from "sonner";
 import "./globals.css";
 
 const montserrat = Montserrat({
@@ -29,6 +30,7 @@ export default function RootLayout({
       <body
         className={`${montserrat.variable} ${inter.variable} antialiased bg-slate-50 text-slate-800`}
       >
+        <Toaster />
         <div className="flex flex-col justify-between min-h-screen">
           <Header />
           <div className="flex-grow">{children}</div>
