@@ -1,10 +1,10 @@
 import { prisma } from "@/lib/connect";
 import { NextResponse } from "next/server";
 
-export async function GET() {
-  const services = await prisma.services.findMany();
-  return NextResponse.json(services, { status: 200 });
-}
+// export async function GET() {
+//   const services = await prisma.services.findMany();
+//   return NextResponse.json(services, { status: 200 });
+// }
 export async function POST(request: Request) {
   const data = await request.json();
   const newService = await prisma.detailServices.create({
@@ -17,4 +17,9 @@ export async function POST(request: Request) {
     },
   });
   return NextResponse.json(newService, { status: 201 });
+}
+
+export async function GET() {
+  const services = await prisma.detailServices.findMany();
+  return NextResponse.json(services, { status: 200 });
 }
