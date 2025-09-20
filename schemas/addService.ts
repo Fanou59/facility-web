@@ -10,9 +10,12 @@ export const addServiceSchema = z.object({
   description: z.string().min(10, {
     message: "La description doit contenir au moins 10 caractères.",
   }),
-  imageUrl: z.string().min(5, {
-    message: "L'URL de l'image doit contenir au moins 5 caractères.",
-  }),
+  imageUrl: z
+    .any()
+    .refine(
+      (file) => file instanceof File || typeof file === "undefined",
+      "Un fichier PNG est requis"
+    ),
   alt: z.string().min(5, {
     message: "Le texte alternatif doit contenir au moins 5 caractères.",
   }),

@@ -33,7 +33,15 @@ export default function AddFormService() {
   });
   async function onSubmit(data: z.infer<typeof addServiceSchema>) {
     try {
-      await addServiceAction(data);
+      const formData = new FormData();
+      formData.append("title", data.title);
+      formData.append("resume", data.resume);
+      formData.append("description", data.description);
+      formData.append("alt", data.alt);
+      formData.append("synthese", JSON.stringify(data.synthese));
+      if (data.imageUrl) formData.append("image", data.imageUrl);
+
+      await addServiceAction(formData); // <-- Passe le FormData à la server action
       form.reset();
       toast.success("Service créé avec succès !");
       queryClient.invalidateQueries({ queryKey: ["services"] });
@@ -104,11 +112,15 @@ export default function AddFormService() {
             name="imageUrl"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Icone du service</FormLabel>
+                <FormLabel>Icone du service (PNG)</FormLabel>
                 <FormControl>
                   <Input
-                    placeholder="Entrez une url valide pour l'icone"
-                    {...field}
+                    type="file"
+                    accept="image/png"
+                    onChange={(e) => {
+                      const file = e.target.files?.[0];
+                      field.onChange(file);
+                    }}
                   />
                 </FormControl>
                 <FormMessage />
