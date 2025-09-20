@@ -1,7 +1,8 @@
 "use client";
+import { addServiceAction } from "@/app/actions/addServices";
 import { addServiceSchema } from "@/schemas/addService";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useMutation } from "@tanstack/react-query";
+import { useQueryClient } from "@tanstack/react-query";
 import { useForm } from "react-hook-form";
 import { toast } from "sonner";
 import { z } from "zod";
@@ -17,8 +18,8 @@ import {
 import { Input } from "../ui/input";
 import { Textarea } from "../ui/textarea";
 
-//Il faudra ajouter un champ résumé
 export default function AddFormService() {
+  const queryClient = useQueryClient();
   const form = useForm<z.infer<typeof addServiceSchema>>({
     resolver: zodResolver(addServiceSchema),
     defaultValues: {
@@ -30,27 +31,21 @@ export default function AddFormService() {
       synthese: ["", "", ""],
     },
   });
-  const mutation = useMutation({
-    mutationFn: async (data: z.infer<typeof addServiceSchema>) => {
-      const res = await fetch("/api/services", {
-        method: "POST",
-        body: JSON.stringify(data),
-        headers: { "Content-Type": "application/json" },
-      });
-      if (!res.ok) throw new Error("Erreur lors de la création");
-      return res.json();
-    },
-    onSuccess: () => {
+  async function onSubmit(data: z.infer<typeof addServiceSchema>) {
+    try {
+      await addServiceAction(data);
       form.reset();
       toast.success("Service créé avec succès !");
-    },
-  });
+      queryClient.invalidateQueries({ queryKey: ["services"] });
+    } catch (e: any) {
+      toast.error(e.message || "Erreur lors de la création");
+    }
+  }
+
   return (
     <Form {...form}>
       <form
-        onSubmit={form.handleSubmit((data) => {
-          mutation.mutate(data);
-        })}
+        onSubmit={form.handleSubmit(onSubmit)}
         className="w-1/2 mx-auto space-y-8"
       >
         <div className="flex flex-col gap-6">
