@@ -10,8 +10,19 @@ import {
   NavigationMenuList,
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
+import { authClient } from "@/lib/auth-client";
 
 export function HeaderNavigation() {
+  const [isLogged, setIsLogged] = React.useState(false);
+  React.useEffect(() => {
+    authClient.getSession().then((session) => {
+      setIsLogged(!!session.data?.user);
+    });
+  }, []);
+  const handleLogout = async () => {
+    await authClient.signOut();
+    window.location.reload();
+  };
   return (
     <NavigationMenu viewport={false} className="hidden sm:block text-gray-600">
       <NavigationMenuList>
@@ -37,11 +48,30 @@ export function HeaderNavigation() {
           </NavigationMenuLink>
         </NavigationMenuItem>
         {/* Cette partie Admin sera conditionée au login de l'admin */}
-        <NavigationMenuItem>
-          <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
-            <Link href="/admin">Admin</Link>
-          </NavigationMenuLink>
-        </NavigationMenuItem>
+        {isLogged && (
+          <>
+            <NavigationMenuItem>
+              <NavigationMenuLink
+                asChild
+                className={navigationMenuTriggerStyle()}
+              >
+                <Link href="/admin">Admin</Link>
+              </NavigationMenuLink>
+            </NavigationMenuItem>
+            <NavigationMenuItem>
+              <button
+                onClick={handleLogout}
+                className={
+                  navigationMenuTriggerStyle() +
+                  " bg-transparent border-none cursor-pointer"
+                }
+                style={{ background: "none" }}
+              >
+                Déconnexion
+              </button>
+            </NavigationMenuItem>
+          </>
+        )}
       </NavigationMenuList>
     </NavigationMenu>
   );
