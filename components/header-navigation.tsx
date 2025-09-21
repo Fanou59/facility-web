@@ -11,6 +11,7 @@ import {
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
 import { authClient } from "@/lib/auth-client";
+import { LogOut } from "lucide-react";
 
 export function HeaderNavigation() {
   const [isLogged, setIsLogged] = React.useState(false);
@@ -67,7 +68,7 @@ export function HeaderNavigation() {
                 }
                 style={{ background: "none" }}
               >
-                Déconnexion
+                <LogOut size={20} />
               </button>
             </NavigationMenuItem>
           </>

@@ -14,7 +14,7 @@ export default function LoginPage() {
     e.preventDefault();
     setError("");
     try {
-      await authClient.signIn.email;
+      await authClient.signIn.email({ email, password });
       router.push("/admin"); // Redirige vers la page d'accueil après connexion
     } catch (err: any) {
       setError(err.message || "Erreur lors de la connexion");
