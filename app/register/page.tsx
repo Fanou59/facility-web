@@ -1,6 +1,5 @@
 // filepath: /app/login/page.tsx
 "use client";
-import { authClient } from "@/lib/auth-client";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 
@@ -15,10 +14,19 @@ export default function LoginPage() {
     e.preventDefault();
     setError("");
     try {
-      await authClient.signUp.email({ email, password, name });
-      router.push("/"); // Redirige vers la page d'accueil après connexion
+      const res = await fetch("/api/register", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, password, name }),
+      });
+      const data = await res.json();
+      if (!res.ok) {
+        setError(data.error || "Erreur lors de l'inscription");
+        return;
+      }
+      router.push("/"); // Redirige vers la page d'accueil après inscription
     } catch (err: any) {
-      setError(err.message || "Erreur lors de la connexion");
+      setError("Erreur lors de la connexion");
     }
   };
 
