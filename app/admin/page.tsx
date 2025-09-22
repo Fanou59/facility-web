@@ -16,6 +16,13 @@ export default async function AdminPage() {
   }
   return (
     <PageContainer>
+      {/* Récupérer les données de l'utilisateur connecté */}
+      <h2>Information de l'utilisateur</h2>
+      <div className="flex gap-4">
+        <p>Nom : {session.user.name}</p>
+        <p>Email : {session.user.email}</p>
+      </div>
+      <Separator className="my-4" />
       <h2>Ajouter un service</h2>
       <AddFormService />
       <Separator className="my-4" />
