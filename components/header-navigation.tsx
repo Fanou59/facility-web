@@ -12,18 +12,15 @@ import {
 } from "@/components/ui/navigation-menu";
 import { authClient } from "@/lib/auth-client";
 import { LogOut } from "lucide-react";
+import { redirect } from "next/navigation";
 
 export function HeaderNavigation() {
-  const [isLogged, setIsLogged] = React.useState(false);
-  React.useEffect(() => {
-    authClient.getSession().then((session) => {
-      setIsLogged(!!session.data?.user);
-    });
-  }, []);
+  const { data: session, isPending } = authClient.useSession();
   const handleLogout = async () => {
     await authClient.signOut();
-    window.location.reload();
+    redirect("/");
   };
+
   return (
     <NavigationMenu viewport={false} className="hidden sm:block text-gray-600">
       <NavigationMenuList>
@@ -48,8 +45,7 @@ export function HeaderNavigation() {
             <Link href="/contact">Contact</Link>
           </NavigationMenuLink>
         </NavigationMenuItem>
-        {/* Cette partie Admin sera conditionée au login de l'admin */}
-        {isLogged && (
+        {session ? (
           <>
             <NavigationMenuItem>
               <NavigationMenuLink
@@ -72,6 +68,8 @@ export function HeaderNavigation() {
               </button>
             </NavigationMenuItem>
           </>
+        ) : (
+          <></>
         )}
       </NavigationMenuList>
     </NavigationMenu>
