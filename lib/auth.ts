@@ -62,6 +62,11 @@ export const auth = betterAuth({
     sendResetPassword: async ({ user, url }) => {
       await sendResetPasswordEmail({ to: user.email, url });
     },
+    user:{
+      additionalFields: {
+        firstName: { type: "string", required: false },
+        lastName: { type: "string", required: false },
+    }
   },
   //...
 });

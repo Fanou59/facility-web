@@ -24,6 +24,8 @@ model User {
   email         String    @unique
   emailVerified Boolean   @default(false)
   image         String?
+  firstName     String?
+  lastName      String?
   createdAt     DateTime  @default(now())
   updatedAt     DateTime  @default(now()) @updatedAt
   accounts      Account[]
