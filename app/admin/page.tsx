@@ -1,5 +1,6 @@
-import AddFormService from "@/components/adminUi/add-form-service";
-import ServicesList from "@/components/adminUi/services-list";
+import ListeServiceSection from "@/components/adminUi/liste-service-section";
+import ServiceSection from "@/components/adminUi/service-section";
+import UserSection from "@/components/adminUi/user-section";
 import PageContainer from "@/components/page-container";
 import { Separator } from "@/components/ui/separator";
 import { auth } from "@/lib/auth";
@@ -17,17 +18,20 @@ export default async function AdminPage() {
   return (
     <PageContainer>
       {/* Récupérer les données de l'utilisateur connecté */}
+      {/* Création section Information de l'utilisateur */}
       <h2>Information de l'utilisateur</h2>
       <div className="flex gap-4">
         <p>Nom : {session.user.name}</p>
         <p>Email : {session.user.email}</p>
       </div>
       <Separator className="my-4" />
-      <h2>Ajouter un service</h2>
-      <AddFormService />
+      {/* Création section liste utilisateurs */}
+      <UserSection />
       <Separator className="my-4" />
-      <h2>Liste des services</h2>
-      <ServicesList />
+      {/* Creation section des services */}
+      <ServiceSection />
+      <Separator className="my-4" />
+      <ListeServiceSection />
     </PageContainer>
   );
 }
