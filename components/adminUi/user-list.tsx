@@ -1,7 +1,6 @@
 "use client";
 import { deleteUserAction } from "@/app/actions/deleteUser";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
-import { useState } from "react";
 import { Button } from "../ui/button";
 
 type User = {
@@ -12,7 +11,6 @@ type User = {
 
 export default function UserList() {
   const queryClient = useQueryClient();
-  const [editingName, setEditingName] = useState();
 
   const { data, isLoading, error } = useQuery<User[]>({
     queryKey: ["user"],
