@@ -19,12 +19,11 @@ export default async function AdminPage() {
     <PageContainer>
       {/* Récupérer les données de l'utilisateur connecté */}
       {/* Création section Information de l'utilisateur */}
-      <h2>Information de l'utilisateur</h2>
-      <div className="flex gap-4">
-        <p>Nom : {session.user.name}</p>
-        <p>Email : {session.user.email}</p>
+      <div className="text-3xl flex justify-end pt-4">
+        <span className="bg-orange-500 text-white font-bold rounded-full px-8 py-3">
+          Bonjour {session.user.name}
+        </span>
       </div>
-      <Separator className="my-4" />
       {/* Création section liste utilisateurs */}
       <UserSection />
       <Separator className="my-4" />
