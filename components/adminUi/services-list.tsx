@@ -1,15 +1,19 @@
 "use client";
 import { deleteServiceAction } from "@/app/actions/deleteService";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
-import { Button } from "../ui/button";
+import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 type Service = {
   id: string;
   title: string;
+  imageUrl: string;
+  alt: string;
 };
 
 export default function ServicesList() {
   const queryClient = useQueryClient();
+  const router = useRouter();
 
   const { data, isLoading, error } = useQuery<Service[]>({
     queryKey: ["services"],
@@ -31,27 +35,27 @@ export default function ServicesList() {
       alert(e.message || "Erreur lors de la suppression");
     }
   }
+  const handleClick = () => {
+    router.push("/mes-services");
+  };
   return (
-    <div className="flex justify-center w-full">
-      <ul className="flex flex-col items-center w-full max-w-md">
+    <div className="flex justify-center">
+      <ul className="flex flex-col gap-4">
         {data.map((service) => (
           <li
             key={service.id}
-            className="flex items-center gap-2 mb-3 self-start"
+            onClick={handleClick}
+            className="cursor-pointer hover:text-orange-500"
           >
-            <span>{service.title}</span>
-            <Button
-              onClick={() => {}}
-              className="px-8 py-3 bg-orange-500 hover:bg-orange-600 text-white font-bold rounded-full transition-all duration-300 shadow-lg transform hover:scale-105"
-            >
-              Modifier
-            </Button>
-            <Button
-              onClick={() => handleDelete(service.id)}
-              className="px-8 py-3 bg-red-500 hover:bg-red-600 text-white font-bold rounded-full transition-all duration-300 shadow-lg transform hover:scale-105"
-            >
-              Supprimer
-            </Button>
+            <div className="flex items-center gap-2">
+              <Image
+                src={service.imageUrl}
+                alt={service.alt}
+                width={50}
+                height={50}
+              />
+              <span>{service.title}</span>
+            </div>
           </li>
         ))}
       </ul>

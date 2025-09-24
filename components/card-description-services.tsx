@@ -4,10 +4,10 @@ import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
 
 type CardDescriptionServicesProps = {
   title: string;
-  description: string;
+  description?: string;
   imageUrl: string;
   alt: string;
-  synthese: string[] | null;
+  synthese?: string[] | null;
 };
 export default function CardDescriptionServices({
   title,

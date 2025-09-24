@@ -1,7 +1,7 @@
 import { Check } from "lucide-react";
 
 type SyntheseServiceProps = {
-  synthese: string[] | null;
+  synthese?: string[] | null;
 };
 
 export default function SyntheseService({ synthese }: SyntheseServiceProps) {
