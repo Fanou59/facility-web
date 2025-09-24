@@ -1,6 +1,7 @@
 "use client";
 import { deleteServiceAction } from "@/app/actions/deleteService";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
+import { Pencil } from "lucide-react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 
@@ -42,11 +43,7 @@ export default function ServicesList() {
     <div className="flex justify-center items-center gap-16">
       <ul className="flex flex-col gap-4">
         {data.map((service) => (
-          <li
-            key={service.id}
-            onClick={handleClick}
-            className="cursor-pointer hover:text-orange-500"
-          >
+          <li key={service.id} className=" flex gap-3 items-center">
             <div className="flex items-center gap-2">
               <Image
                 src={service.imageUrl}
@@ -56,6 +53,9 @@ export default function ServicesList() {
               />
               <span>{service.title}</span>
             </div>
+            <button onClick={handleClick}>
+              <Pencil className="hover:text-orange-500 cursor-pointer" />
+            </button>
           </li>
         ))}
       </ul>
