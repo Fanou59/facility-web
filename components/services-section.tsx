@@ -1,8 +1,7 @@
-import { prisma } from "@/lib/connect";
-import CardServices from "./card-services";
-// import { services } from "@/data/services";
 import { auth } from "@/lib/auth";
+import { prisma } from "@/lib/connect";
 import { headers } from "next/headers";
+import CardServices from "./card-services";
 import PlusAddService from "./plus-add-service";
 import Section from "./section";
 
@@ -30,7 +29,6 @@ export default async function ServicesSection() {
           />
         ))}
       </div>
-
       {session && (
         <div className="mt-4">
           <PlusAddService />
