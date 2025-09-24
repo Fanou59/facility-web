@@ -7,8 +7,15 @@ import { prisma } from "@/lib/connect";
 // il faut remplacer detailService par service
 
 import ContactSection from "@/components/contact-section";
+import PlusAddService from "@/components/plus-add-service";
+import { auth } from "@/lib/auth";
+import { headers } from "next/headers";
 
 export default async function MesServices() {
+  const headersList = await headers();
+  const session = await auth.api.getSession({
+    headers: headersList,
+  });
   const detailServices = await prisma.services.findMany();
   return (
     <PageContainer>
@@ -34,6 +41,11 @@ export default async function MesServices() {
               synthese={detailService.synthese as string[] | null}
             />
           ))}
+          {session && (
+            <div className="mt-4">
+              <PlusAddService />
+            </div>
+          )}
         </div>
       </Section>
       <ContactSection />

@@ -1,9 +1,16 @@
 import { prisma } from "@/lib/connect";
 import CardServices from "./card-services";
 // import { services } from "@/data/services";
+import { auth } from "@/lib/auth";
+import { headers } from "next/headers";
+import PlusAddService from "./plus-add-service";
 import Section from "./section";
 
 export default async function ServicesSection() {
+  const headersList = await headers();
+  const session = await auth.api.getSession({
+    headers: headersList,
+  });
   const services = await prisma.services.findMany();
 
   return (
@@ -23,6 +30,12 @@ export default async function ServicesSection() {
           />
         ))}
       </div>
+
+      {session && (
+        <div className="mt-4">
+          <PlusAddService />
+        </div>
+      )}
     </Section>
   );
 }

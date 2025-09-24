@@ -39,7 +39,7 @@ export default function ServicesList() {
     router.push("/mes-services");
   };
   return (
-    <div className="flex justify-center">
+    <div className="flex justify-center items-center gap-16">
       <ul className="flex flex-col gap-4">
         {data.map((service) => (
           <li
