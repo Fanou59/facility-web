@@ -1,7 +1,7 @@
 "use client";
 import { deleteServiceAction } from "@/app/actions/deleteService";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
-import { Pencil } from "lucide-react";
+import { Pencil, Trash } from "lucide-react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 
@@ -36,6 +36,8 @@ export default function ServicesList() {
       alert(e.message || "Erreur lors de la suppression");
     }
   }
+
+  //TODO: handleClick doit appeler la fonction
   const handleClick = () => {
     router.push("/mes-services");
   };
@@ -56,9 +58,17 @@ export default function ServicesList() {
             <button onClick={handleClick}>
               <Pencil className="hover:text-orange-500 cursor-pointer" />
             </button>
+            <button onClick={() => handleDelete(service.id)}>
+              <Trash className="hover:text-orange-500 cursor-pointer" />
+            </button>
           </li>
         ))}
       </ul>
     </div>
   );
 }
+/*
+ * handleClick doit se tranformer en handleShow ou handleModify
+ * handleShow affiche un composant qui affichera l'ensemble des données du service
+ * il va falloir passer aussi l'Id du service
+ * */

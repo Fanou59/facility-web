@@ -15,7 +15,7 @@ model Services {
   imageUrl    String
   alt         String
   resume      String @default("")
-  synthese    Json   @default("{}")
+  synthese    Json?   @default("{}")
 }
 
 model User {
