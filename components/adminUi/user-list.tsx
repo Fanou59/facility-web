@@ -2,6 +2,7 @@
 import { deleteUserAction } from "@/app/actions/deleteUser";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { Button } from "../ui/button";
+import SpinnerPerso from "../ui/spinner-perso";
 
 type User = {
   id: string;
@@ -20,7 +21,7 @@ export default function UserList() {
       return res.json();
     },
   });
-  if (isLoading) return <div>Chargement ...</div>;
+  if (isLoading) return <SpinnerPerso />;
   if (error) return <div>Erreur: {error.message}</div>;
   if (!data) return <div>Aucun service trouvé.</div>;
 

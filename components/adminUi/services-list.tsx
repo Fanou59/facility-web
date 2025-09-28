@@ -5,7 +5,7 @@ import { Pencil, PencilOff, Trash } from "lucide-react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
-import { Spinner } from "../ui/shadcn-io/spinner";
+import SpinnerPerso from "../ui/spinner-perso";
 import AddFormService from "./add-form-service";
 
 type Service = {
@@ -46,12 +46,7 @@ export default function ServicesList() {
       enabled: !!selectedServiceId, // Ne lance la query que si un service est sélectionné
     });
 
-  if (isLoading)
-    return (
-      <div className="flex justify-center">
-        <Spinner className="text-orange-500" />
-      </div>
-    );
+  if (isLoading) return <SpinnerPerso />;
   if (error) return <div>Erreur: {error.message}</div>;
   if (!data) return <div>Aucun service trouvé.</div>;
 
@@ -108,10 +103,7 @@ export default function ServicesList() {
             {selectedServiceId === service.id && (
               <div className="mt-4 p-4 bg-gray-50 rounded-lg border">
                 {isLoadingDetails ? (
-                  <div className="flex justify-center gap-3">
-                    <Spinner className="text-orange-500" />
-                    Chargement des détails...
-                  </div>
+                  <SpinnerPerso />
                 ) : serviceDetails ? (
                   <AddFormService
                     initialData={{
