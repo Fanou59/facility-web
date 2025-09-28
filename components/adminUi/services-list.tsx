@@ -1,12 +1,12 @@
 "use client";
 import { deleteServiceAction } from "@/app/actions/deleteService";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
-import { Pencil, Trash } from "lucide-react";
+import { Pencil, PencilOff, Trash } from "lucide-react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
-import SyntheseService from "../synthese-service";
-import { Button } from "../ui/button";
+import { Spinner } from "../ui/shadcn-io/spinner";
+import AddFormService from "./add-form-service";
 
 type Service = {
   id: string;
@@ -46,7 +46,12 @@ export default function ServicesList() {
       enabled: !!selectedServiceId, // Ne lance la query que si un service est sélectionné
     });
 
-  if (isLoading) return <div>Chargement ...</div>;
+  if (isLoading)
+    return (
+      <div className="flex justify-center">
+        <Spinner className="text-orange-500" />
+      </div>
+    );
   if (error) return <div>Erreur: {error.message}</div>;
   if (!data) return <div>Aucun service trouvé.</div>;
 
@@ -60,10 +65,12 @@ export default function ServicesList() {
   }
 
   //TODO: handleClick doit appeler la fonction qui va permettre d'afficher les données détaillées du service
-  const handleModify = (id: string) => {
-    // router.push("/mes-services");
-    setSelectedServiceId(id);
-    console.log("Modifier / Afficher", id);
+  const handleEdit = (id: string) => {
+    if (selectedServiceId === id) {
+      setSelectedServiceId(null);
+    } else {
+      setSelectedServiceId(id);
+    }
   };
 
   const closeDetails = () => {
@@ -85,8 +92,12 @@ export default function ServicesList() {
                 />
                 <span>{service.title}</span>
               </div>
-              <button onClick={() => handleModify(service.id)}>
-                <Pencil className="hover:text-orange-500 cursor-pointer" />
+              <button onClick={() => handleEdit(service.id)}>
+                {selectedServiceId === service.id ? (
+                  <PencilOff className="hover:text-orange-500 cursor-pointer text-orange-500" />
+                ) : (
+                  <Pencil className="hover:text-orange-500 cursor-pointer" />
+                )}
               </button>
               <button onClick={() => handleDelete(service.id)}>
                 <Trash className="hover:text-orange-500 cursor-pointer" />
@@ -97,38 +108,24 @@ export default function ServicesList() {
             {selectedServiceId === service.id && (
               <div className="mt-4 p-4 bg-gray-50 rounded-lg border">
                 {isLoadingDetails ? (
-                  <div>Chargement des détails...</div>
-                ) : serviceDetails ? (
-                  <div>
-                    <div>Titre : {serviceDetails.title}</div>
-                    <Image
-                      src={serviceDetails.imageUrl}
-                      alt={serviceDetails.alt}
-                      width={50}
-                      height={50}
-                    />
-                    <div>Balise ALT : {serviceDetails.alt}</div>
-                    <div>Description{serviceDetails.description}</div>
-                    <SyntheseService synthese={serviceDetails.synthese} />
-                    <div className="flex gap-2 mt-6">
-                      <Button
-                        onClick={() => {
-                          router.push(
-                            `/admin/services/edit/${serviceDetails.id}`
-                          );
-                        }}
-                        className="mt-8 px-8 py-3 bg-orange-500 hover:bg-orange-600 text-white font-bold rounded-full transition-all duration-300 shadow-lg transform hover:scale-105"
-                      >
-                        Enregistrer
-                      </Button>
-                      <Button
-                        onClick={closeDetails}
-                        className="mt-8 px-8 py-3 bg-slate-500 hover:bg-slate-600 text-white font-bold rounded-full transition-all duration-300 shadow-lg transform hover:scale-105"
-                      >
-                        Annuler
-                      </Button>
-                    </div>
+                  <div className="flex justify-center gap-3">
+                    <Spinner className="text-orange-500" />
+                    Chargement des détails...
                   </div>
+                ) : serviceDetails ? (
+                  <AddFormService
+                    initialData={{
+                      title: serviceDetails.title,
+                      imageUrl: serviceDetails.imageUrl,
+                      alt: serviceDetails.alt,
+                      resume: serviceDetails.resume,
+                      description: serviceDetails.description,
+                      synthese: serviceDetails.synthese,
+                    }}
+                    serviceId={serviceDetails.id}
+                    mode="edit"
+                    onSuccess={closeDetails}
+                  />
                 ) : (
                   <div>Service non trouvé</div>
                 )}

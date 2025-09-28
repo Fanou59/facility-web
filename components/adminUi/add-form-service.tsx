@@ -1,5 +1,6 @@
 "use client";
 import { addServiceAction } from "@/app/actions/addServices";
+import { updateServiceAction } from "@/app/actions/updateServices";
 import { addServiceSchema } from "@/schemas/addService";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useQueryClient } from "@tanstack/react-query";
@@ -18,17 +19,33 @@ import {
 import { Input } from "../ui/input";
 import { Textarea } from "../ui/textarea";
 
-export default function AddFormService() {
+interface AddFormServiceProps {
+  initialData?: Partial<z.infer<typeof addServiceSchema>>;
+  serviceId?: string;
+  mode?: "create" | "edit";
+  onSuccess?: () => void;
+}
+
+export default function AddFormService({
+  initialData,
+  serviceId,
+  mode = "create",
+  onSuccess,
+}: AddFormServiceProps) {
   const queryClient = useQueryClient();
+
+  // Créer un schéma pour l'édition où l'image est optionnelle
+  const editServiceSchema = addServiceSchema.partial({ imageUrl: true });
+  const currentSchema = mode === "edit" ? editServiceSchema : addServiceSchema;
   const form = useForm<z.infer<typeof addServiceSchema>>({
     resolver: zodResolver(addServiceSchema),
     defaultValues: {
-      title: "",
-      resume: "",
-      description: "",
-      imageUrl: "",
-      alt: "",
-      synthese: ["", "", ""],
+      title: initialData?.title || "",
+      resume: initialData?.resume || "",
+      description: initialData?.description || "",
+      imageUrl: mode === "edit" ? undefined : "",
+      alt: initialData?.alt || "",
+      synthese: initialData?.synthese || ["", "", ""],
     },
   });
   async function onSubmit(data: z.infer<typeof addServiceSchema>) {
@@ -39,14 +56,32 @@ export default function AddFormService() {
       formData.append("description", data.description);
       formData.append("alt", data.alt);
       formData.append("synthese", JSON.stringify(data.synthese));
-      if (data.imageUrl) formData.append("image", data.imageUrl);
+      // En mode edit, n'ajouter l'image que si une nouvelle image a été sélectionnée
+      if (data.imageUrl && data.imageUrl instanceof File) {
+        formData.append("image", data.imageUrl);
+      }
 
-      await addServiceAction(formData); // <-- Passe le FormData à la server action
+      if (mode === "edit" && serviceId) {
+        formData.append("id", serviceId);
+        await updateServiceAction(formData);
+        toast.success("Service modifié avec succès !");
+      } else {
+        await addServiceAction(formData);
+        toast.success("Service créé avec succès !");
+      }
+
       form.reset();
-      toast.success("Service créé avec succès !");
       queryClient.invalidateQueries({ queryKey: ["services"] });
+
+      // Appeler le callback onSuccess si fourni
+      if (onSuccess) {
+        onSuccess();
+      }
     } catch (e: any) {
-      toast.error(e.message || "Erreur lors de la création");
+      toast.error(
+        e.message ||
+          `Erreur lors de la ${mode === "edit" ? "modification" : "création"}`
+      );
     }
   }
 
@@ -54,7 +89,7 @@ export default function AddFormService() {
     <Form {...form}>
       <form
         onSubmit={form.handleSubmit(onSubmit)}
-        className="w-1/2 mx-auto space-y-8"
+        className=" mx-auto space-y-8"
       >
         <div className="flex flex-col gap-6">
           <FormField
@@ -112,7 +147,12 @@ export default function AddFormService() {
             name="imageUrl"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Icone du service (PNG)</FormLabel>
+                <FormLabel>
+                  {" "}
+                  Icone du service (PNG){" "}
+                  {mode === "edit" &&
+                    "(optionnel - garder vide pour conserver l'image actuelle)"}
+                </FormLabel>
                 <FormControl>
                   <Input
                     type="file"
@@ -188,7 +228,7 @@ export default function AddFormService() {
             type="submit"
             className="px-8 py-3 bg-orange-500 hover:bg-orange-600 text-white font-bold rounded-full transition-all duration-300 shadow-lg transform hover:scale-105"
           >
-            Publier
+            {mode === "edit" ? "Modifier" : "Publier"}
           </Button>
         </div>
       </form>
