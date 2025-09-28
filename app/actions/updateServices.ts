@@ -1,8 +1,8 @@
 "use server";
 
+import { prisma } from "@/lib/prisma";
 import { addServiceSchema } from "@/schemas/addService";
 import { mkdir, writeFile } from "fs/promises";
-// import { prisma } from "@/lib/prisma"; // Assurez-vous d'avoir votre instance Prisma
 import { revalidatePath } from "next/cache";
 import path from "path";
 

@@ -1,4 +1,5 @@
 "use server";
+import { prisma } from "@/lib/prisma";
 
 export async function updateUserAction(id: string) {
   // 1. Récupérer l'utilisateur pour avoir le chemin de l'image

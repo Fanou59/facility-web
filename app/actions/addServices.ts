@@ -1,10 +1,8 @@
 "use server";
 
-import { PrismaClient } from "@/lib/generated/prisma";
+import { prisma } from "@/lib/prisma";
 import { promises as fs } from "fs";
 import path from "path";
-
-const prisma = new PrismaClient();
 
 export async function addServiceAction(formData: FormData) {
   const title = formData.get("title") as string;
