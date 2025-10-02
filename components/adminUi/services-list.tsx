@@ -1,10 +1,11 @@
 "use client";
 import { deleteServiceAction } from "@/app/actions/deleteService";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
-import { Pencil, PencilOff, Trash } from "lucide-react";
+import { Trash } from "lucide-react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
+import EditButton from "../edit-button";
 import SpinnerPerso from "../ui/spinner-perso";
 import AddFormService from "./add-form-service";
 
@@ -87,13 +88,10 @@ export default function ServicesList() {
                 />
                 <span>{service.title}</span>
               </div>
-              <button onClick={() => handleEdit(service.id)}>
-                {selectedServiceId === service.id ? (
-                  <PencilOff className="hover:text-orange-500 cursor-pointer text-orange-500" />
-                ) : (
-                  <Pencil className="hover:text-orange-500 cursor-pointer" />
-                )}
-              </button>
+              <EditButton
+                onClick={() => handleEdit(service.id)}
+                isActive={selectedServiceId === service.id}
+              />
               <button onClick={() => handleDelete(service.id)}>
                 <Trash className="hover:text-orange-500 cursor-pointer" />
               </button>

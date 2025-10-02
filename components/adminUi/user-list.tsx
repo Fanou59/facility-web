@@ -1,6 +1,7 @@
 "use client";
 import { deleteUserAction } from "@/app/actions/deleteUser";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
+import EditButton from "../edit-button";
 import { Button } from "../ui/button";
 import SpinnerPerso from "../ui/spinner-perso";
 
@@ -41,12 +42,7 @@ export default function UserList() {
             <span>{user.name}</span>
             <span>{user.firstName}</span>
 
-            <Button
-              onClick={() => {}}
-              className="px-8 py-3 bg-orange-500 hover:bg-orange-600 text-white font-bold rounded-full transition-all duration-300 shadow-lg transform hover:scale-105"
-            >
-              Modifier
-            </Button>
+            <EditButton onClick={() => {}} isActive={false} />
             <Button
               onClick={() => handleDelete(user.id)}
               className="px-8 py-3 bg-red-500 hover:bg-red-600 text-white font-bold rounded-full transition-all duration-300 shadow-lg transform hover:scale-105"
