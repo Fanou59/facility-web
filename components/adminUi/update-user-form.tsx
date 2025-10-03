@@ -54,6 +54,8 @@ export default function UpdateUserForm({
     setIsSubmitting(true);
 
     try {
+      console.log("Données envoyées:", data);
+      console.log("ID utilisateur:", userId);
       await updateUserAction(userId, data);
       toast.success("Utilisateur modifié avec succès");
       queryClient.invalidateQueries({ queryKey: ["user"] });
@@ -62,6 +64,13 @@ export default function UpdateUserForm({
         onSuccess();
       }
     } catch (e: any) {
+      console.error("=== ERREUR DANS LE FORMULAIRE ===");
+      console.error("Type:", e.constructor.name);
+      console.error("Message:", e.message);
+      console.error("Code:", e.code);
+      console.error("Meta:", e.meta);
+      console.error("Stack:", e.stack);
+      console.error("Erreur complète:", e);
       toast.error(
         e.message || "Erreur lors de la modification de l'utilisateur"
       );
