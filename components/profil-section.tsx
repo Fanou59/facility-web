@@ -1,3 +1,4 @@
+import { introCv } from "@/data/Intro-cv";
 import Image from "next/image";
 
 export default async function ProfilSection() {
@@ -20,15 +21,9 @@ export default async function ProfilSection() {
           {user.firstName} {user.lastName}
         </h2>
         <h3 className="mt-2 text-xl md:text-2xl text-orange-500 font-semibold">
-          Consultant en stratégie marketing
+          {introCv.actualJob}
         </h3>
-        <p className="mt-4 text-gray-600 max-w-2xl">
-          En tant que professionnel du marketing et de la communication, j'ai
-          dirigé des équipes et élaboré des stratégies qui ont généré des
-          résultats significatifs. Mon parcours de 10 ans m'a permis d'acquérir
-          une compréhension approfondie du marketing stratégique et des
-          compétences avancées en communication.
-        </p>
+        <p className="mt-4 text-gray-600 max-w-2xl">{introCv.presentation}</p>
       </div>
     </section>
   );

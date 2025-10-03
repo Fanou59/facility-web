@@ -1,5 +1,5 @@
 "use client";
-import { ChevronDown } from "lucide-react";
+import { ChevronDown, ChevronUp } from "lucide-react";
 import { useState } from "react";
 import { Button } from "../ui/button";
 
@@ -26,7 +26,7 @@ export default function CollapsibleSection({
           className="bg-orange-500 hover:bg-orange-600 text-white font-bold rounded-full transition-all duration-300 shadow-lg transform hover:scale-105 w-6 h-6"
           onClick={handleToggle}
         >
-          <ChevronDown />
+          {isOpen ? <ChevronUp /> : <ChevronDown />}
         </Button>
       </div>
       {isOpen && children}

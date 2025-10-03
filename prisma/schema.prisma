@@ -77,3 +77,14 @@ model Verification {
 
   @@map("verification")
 }
+
+model cv{
+  id Int @id @default(autoincrement())
+  actualJob String
+  presentation String
+  job String
+  company String
+  resume String
+  monthStart String
+  yearStart String
+}

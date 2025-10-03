@@ -1,3 +1,4 @@
+import InformationCVSection from "@/components/adminUi/information-cv-section";
 import ListeServiceSection from "@/components/adminUi/liste-service-section";
 import ServiceSection from "@/components/adminUi/service-section";
 import UserSection from "@/components/adminUi/user-section";
@@ -25,6 +26,8 @@ export default async function AdminPage() {
       <ServiceSection />
       <Separator className="my-4" />
       <ListeServiceSection />
+      <Separator className="my-4" />
+      <InformationCVSection />
     </PageContainer>
   );
 }
