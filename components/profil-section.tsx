@@ -1,4 +1,3 @@
-import { introCv } from "@/data/Intro-cv";
 import { prisma } from "@/lib/prisma";
 import Image from "next/image";
 
@@ -22,9 +21,9 @@ export default async function ProfilSection() {
           {user.firstName} {user.lastName}
         </h2>
         <h3 className="mt-2 text-xl md:text-2xl text-orange-500 font-semibold">
-          {introCv.actualJob}
+          {user.actualJob}
         </h3>
-        <p className="mt-4 text-gray-600 max-w-2xl">{introCv.presentation}</p>
+        <p className="mt-4 text-gray-600 max-w-2xl">{user.presentation}</p>
       </div>
     </section>
   );

@@ -20,7 +20,7 @@ export default function CollapsibleSection({
 
   return (
     <>
-      <div className="flex gap-4 i items-center mt-4">
+      <div className="flex gap-4 i items-center mt-4 mb-4">
         <h2>{title}</h2>
         <Button
           className="bg-orange-500 hover:bg-orange-600 text-white font-bold rounded-full transition-all duration-300 shadow-lg transform hover:scale-105 w-6 h-6"

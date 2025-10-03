@@ -162,7 +162,11 @@ export default function UpdateUserForm({
               <FormItem>
                 <FormLabel>Présentation</FormLabel>
                 <FormControl>
-                  <Textarea placeholder="Blabla..." {...field} />
+                  <Textarea
+                    placeholder="Blabla..."
+                    {...field}
+                    className="min-h-[150px]"
+                  />
                 </FormControl>
                 <FormMessage />
               </FormItem>

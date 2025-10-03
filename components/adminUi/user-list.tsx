@@ -13,7 +13,7 @@ type User = {
   firstName?: string;
   lastName?: string;
   email?: string;
-  actualjob?: string;
+  actualJob?: string;
   presentation?: string;
 };
 
@@ -52,17 +52,20 @@ export default function UserList() {
   }
   return (
     <div className="flex justify-center w-full">
-      <ul className="flex flex-col items-center w-full max-w-md">
+      <ul className="flex flex-col items-center w-full max-w-3xl">
         {data.map((user) => {
           const isSelected = selectedUserId === user.id;
           const selectedUser = data.find((u) => u.id === selectedUserId);
 
           return (
             <li key={user.id} className="flex flex-col gap-2 mb-3 w-full">
-              <div className="flex items-center gap-2 self-start">
-                <span>{user.firstName}</span>
-                <span>{user.lastName}</span>
-                <span>{user.actualjob}</span>
+              <div className="flex items-center gap-4">
+                <div className="flex space-x-3 mx-auto">
+                  <span>{user.firstName}</span>
+                  <span>{user.lastName}</span>
+
+                  <span>{user.actualJob}</span>
+                </div>
 
                 <EditButton
                   onClick={() => handleEdit(user.id)}
