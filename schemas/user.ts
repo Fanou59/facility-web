@@ -16,4 +16,6 @@ export const userSchema = z.object({
       message: "Le nom de famille doit contenir au moins 2 caractères.",
     })
     .optional(),
+  actualJob: z.string().max(100).optional(),
+  presentation: z.string().max(500).optional(),
 });

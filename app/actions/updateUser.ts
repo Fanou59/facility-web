@@ -19,6 +19,8 @@ export async function updateUserAction(
         firstName: validatedData.firstName,
         lastName: validatedData.lastName,
         email: validatedData.email,
+        actualJob: validatedData.actualJob,
+        presentation: validatedData.presentation,
       },
     });
 

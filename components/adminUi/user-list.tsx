@@ -13,6 +13,8 @@ type User = {
   firstName?: string;
   lastName?: string;
   email?: string;
+  actualjob?: string;
+  presentation?: string;
 };
 
 export default function UserList() {
@@ -60,6 +62,7 @@ export default function UserList() {
               <div className="flex items-center gap-2 self-start">
                 <span>{user.firstName}</span>
                 <span>{user.lastName}</span>
+                <span>{user.actualjob}</span>
 
                 <EditButton
                   onClick={() => handleEdit(user.id)}

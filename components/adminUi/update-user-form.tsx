@@ -17,6 +17,7 @@ import {
   FormMessage,
 } from "../ui/form";
 import { Input } from "../ui/input";
+import { Textarea } from "../ui/textarea";
 
 interface UpdateUserFormProps {
   initialData?: Partial<z.infer<typeof userSchema>>;
@@ -39,6 +40,8 @@ export default function UpdateUserForm({
       firstName: initialData?.firstName || "",
       lastName: initialData?.lastName || "",
       email: initialData?.email || "",
+      actualJob: initialData?.actualJob || "",
+      presentation: initialData?.presentation || "",
     },
   });
 
@@ -125,6 +128,32 @@ export default function UpdateUserForm({
                     placeholder="john.doe@gmail.com"
                     {...field}
                   />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          <FormField
+            control={form.control}
+            name="actualJob"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Métier actuel</FormLabel>
+                <FormControl>
+                  <Input placeholder="Analyste" {...field} />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          <FormField
+            control={form.control}
+            name="presentation"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Présentation</FormLabel>
+                <FormControl>
+                  <Textarea placeholder="Blabla..." {...field} />
                 </FormControl>
                 <FormMessage />
               </FormItem>
