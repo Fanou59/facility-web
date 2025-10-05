@@ -28,6 +28,8 @@ export default async function AdminPage() {
       <ListeServiceSection />
       <Separator className="my-4" />
       <CVSection />
+      <Separator className="my-4" />
+      <CVSection />
     </PageContainer>
   );
 }
