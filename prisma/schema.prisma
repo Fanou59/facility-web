@@ -85,6 +85,5 @@ model cv{
   job String
   company String
   resume String
-  monthStart String
-  yearStart String
+  startDate DateTime
 }
