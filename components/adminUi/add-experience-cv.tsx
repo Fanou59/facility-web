@@ -65,7 +65,8 @@ export default function AddExperienceCv({ onSuccess }: AddExperienceCvProps) {
       formData.append("startDate", data.startDate);
 
       await addExperienceCVAction(formData);
-      toast.success("Service modifié avec succès !");
+      toast.success("Expérience ajoutée avec succès !");
+      form.reset();
     } catch (e: any) {
       toast.error(e.message || `Erreur lors de l'ajout de l'expérience`);
     }
@@ -73,106 +74,123 @@ export default function AddExperienceCv({ onSuccess }: AddExperienceCvProps) {
 
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)}>
-        <FormField
-          control={form.control}
-          name="job"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>Métier</FormLabel>
-              <FormControl>
-                <Input {...field} />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-        <FormField
-          control={form.control}
-          name="company"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>Entreprise</FormLabel>
-              <FormControl>
-                <Input {...field} />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-        <FormField
-          control={form.control}
-          name="resume"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>Description du job</FormLabel>
-              <FormControl>
-                <Textarea {...field} className="min-h-[150px]" />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-        <FormField
-          control={form.control}
-          name="startDate"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>Date de démarrage</FormLabel>
-              <FormControl>
-                <div className="relative">
-                  <Input
-                    className="bg-background pr-10"
-                    value={field.value ? formatDate(new Date(field.value)) : ""}
-                    readOnly
-                    onKeyDown={(e) => {
-                      if (e.key === "ArrowDown") {
-                        e.preventDefault();
-                        setOpen(true);
+      <form
+        onSubmit={form.handleSubmit(onSubmit)}
+        className="mx-auto space-y-8"
+      >
+        <div className="flex flex-col gap-6">
+          <FormField
+            control={form.control}
+            name="job"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Métier</FormLabel>
+                <FormControl>
+                  <Input {...field} />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          <FormField
+            control={form.control}
+            name="company"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Entreprise</FormLabel>
+                <FormControl>
+                  <Input {...field} />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          <FormField
+            control={form.control}
+            name="resume"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Description du job</FormLabel>
+                <FormControl>
+                  <Textarea {...field} className="min-h-[150px]" />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          <FormField
+            control={form.control}
+            name="startDate"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Date de démarrage</FormLabel>
+                <FormControl>
+                  <div className="relative">
+                    <Input
+                      className="bg-background pr-10"
+                      value={
+                        field.value ? formatDate(new Date(field.value)) : ""
                       }
-                    }}
-                  />
-                  <Popover open={open} onOpenChange={setOpen}>
-                    <PopoverTrigger asChild>
-                      <Button
-                        id="date-picker"
-                        variant="ghost"
-                        className="absolute top-1/2 right-2 size-6 -translate-y-1/2"
-                      >
-                        <CalendarIcon className="size-3.5" />
-                        <span className="sr-only">Choisir une date</span>
-                      </Button>
-                    </PopoverTrigger>
-                    <PopoverContent
-                      className="w-auto overflow-hidden p-0"
-                      align="end"
-                      alignOffset={-8}
-                      sideOffset={10}
-                    >
-                      <Calendar
-                        mode="single"
-                        selected={
-                          field.value ? new Date(field.value) : undefined
+                      readOnly
+                      onKeyDown={(e) => {
+                        if (e.key === "ArrowDown") {
+                          e.preventDefault();
+                          setOpen(true);
                         }
-                        captionLayout="dropdown"
-                        month={month}
-                        onMonthChange={setMonth}
-                        onSelect={(date) => {
-                          if (date) {
-                            // Envoyer la date au format ISO pour que Zod puisse la parser
-                            field.onChange(date.toISOString());
-                            setOpen(false);
+                      }}
+                    />
+                    <Popover open={open} onOpenChange={setOpen}>
+                      <PopoverTrigger asChild>
+                        <Button
+                          id="date-picker"
+                          variant="ghost"
+                          className="absolute top-1/2 right-2 size-6 -translate-y-1/2"
+                        >
+                          <CalendarIcon className="size-3.5" />
+                          <span className="sr-only">Choisir une date</span>
+                        </Button>
+                      </PopoverTrigger>
+                      <PopoverContent
+                        className="w-auto overflow-hidden p-0"
+                        align="end"
+                        alignOffset={-8}
+                        sideOffset={10}
+                      >
+                        <Calendar
+                          mode="single"
+                          selected={
+                            field.value ? new Date(field.value) : undefined
                           }
-                        }}
-                      />
-                    </PopoverContent>
-                  </Popover>
-                </div>
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
+                          captionLayout="dropdown"
+                          month={month}
+                          onMonthChange={setMonth}
+                          onSelect={(date) => {
+                            if (date) {
+                              // Utiliser le format YYYY-MM-DD au lieu d'ISO
+                              const year = date.getFullYear();
+                              const month = String(
+                                date.getMonth() + 1
+                              ).padStart(2, "0");
+                              const day = String(date.getDate()).padStart(
+                                2,
+                                "0"
+                              );
+                              const localDateString = `${year}-${month}-${day}`;
+
+                              field.onChange(localDateString);
+                              setOpen(false);
+                            }
+                          }}
+                        />
+                      </PopoverContent>
+                    </Popover>
+                  </div>
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+        </div>
         <div className="flex justify-end">
           <Button
             type="submit"
