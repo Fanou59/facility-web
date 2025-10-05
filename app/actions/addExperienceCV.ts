@@ -1,6 +1,7 @@
 "use server";
 
-import { prisma } from "@/lib/prisma";
+import { PrismaClient } from "@/lib/generated/prisma";
+const primsa = new PrismaClient();
 
 export async function addExperienceCVAction(formData: FormData) {
   const job = formData.get("job") as string;
@@ -9,15 +10,21 @@ export async function addExperienceCVAction(formData: FormData) {
 
   const startDateString = formData.get("startDate") as string;
   const startDate = new Date(startDateString);
+  try {
+    await prisma.cv.create({
+      data: {
+        job,
+        company,
+        resume,
+        startDate,
+      },
+    });
 
-  await prisma.cv.create({
-    data: {
-      job: formData.get("job") as string,
-      company: formData.get("company") as string,
-      resume: formData.get("resume") as string,
-      startDate: startDate, // Conversion string → Date pour Prisma
-    },
-  });
-
-  return { success: true };
+    return { success: true };
+  } catch (error) {
+    console.error("Erreur lors de l'ajout de l'expérience:", error);
+    throw new Error("Impossible d'ajouter l'expérience");
+  } finally {
+    await prisma.$disconnect();
+  }
 }
