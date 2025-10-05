@@ -52,7 +52,7 @@ export default function AddExperienceCv({ onSuccess }: AddExperienceCvProps) {
       job: "",
       company: "",
       resume: "",
-      startDate: "",
+      startDate: new Date().toISOString(),
     },
   });
 
@@ -123,13 +123,14 @@ export default function AddExperienceCv({ onSuccess }: AddExperienceCvProps) {
                 <div className="relative">
                   <Input
                     className="bg-background pr-10"
+                    value={field.value ? formatDate(new Date(field.value)) : ""}
+                    readOnly
                     onKeyDown={(e) => {
                       if (e.key === "ArrowDown") {
                         e.preventDefault();
                         setOpen(true);
                       }
                     }}
-                    {...field}
                   />
                   <Popover open={open} onOpenChange={setOpen}>
                     <PopoverTrigger asChild>
@@ -157,9 +158,11 @@ export default function AddExperienceCv({ onSuccess }: AddExperienceCvProps) {
                         month={month}
                         onMonthChange={setMonth}
                         onSelect={(date) => {
-                          const formattedDate = formatDate(date);
-                          field.onChange(formattedDate);
-                          setOpen(false);
+                          if (date) {
+                            // Envoyer la date au format ISO pour que Zod puisse la parser
+                            field.onChange(date.toISOString());
+                            setOpen(false);
+                          }
                         }}
                       />
                     </PopoverContent>

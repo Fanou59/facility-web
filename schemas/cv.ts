@@ -15,7 +15,6 @@ export const cvSchema = z.object({
     .min(1, { message: "La date de début est requise." })
     .refine(
       (dateStr) => {
-        // Vérifier que la date peut être parsée
         const date = new Date(dateStr);
         return !isNaN(date.getTime());
       },
