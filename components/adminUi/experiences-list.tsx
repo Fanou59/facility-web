@@ -78,6 +78,8 @@ export default function ExperiencesList() {
             <div className="flex gap-3 items-center">
               <div className="flex items-center gap-2">
                 <span>{experience.job}</span>
+                <span>|</span>
+                <span>{experience.company}</span>
               </div>
               <EditButton
                 onClick={() => handleEdit(experience.id)}
