@@ -33,7 +33,7 @@ export default function ExperiencesList() {
   // Query pour récupérer les détails du service sélectionné
   const { data: serviceDetails, isLoading: isLoadingDetails } =
     useQuery<Experience>({
-      queryKey: ["service", selectedExperienceId],
+      queryKey: ["experiences", selectedExperienceId],
       queryFn: async () => {
         const res = await fetch(`/api/experiences/${selectedExperienceId}`);
         if (!res.ok) throw new Error("Erreur lors du chargement du service");

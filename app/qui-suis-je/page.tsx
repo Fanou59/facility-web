@@ -4,7 +4,7 @@ import Section from "@/components/section";
 import { TimelineLayout } from "@/components/timeline-layout";
 import { Badge } from "@/components/ui/badge";
 
-export default function QuiSuisJe() {
+export default async function QuiSuisJe() {
   return (
     <PageContainer>
       <ProfilSection />

@@ -2,6 +2,8 @@ import { prisma } from "@/lib/prisma";
 import { NextResponse } from "next/server";
 
 export async function GET() {
-  const experiences = await prisma.cv.findMany();
+  const experiences = await prisma.cv.findMany({
+    orderBy: { startDate: "desc" },
+  });
   return NextResponse.json(experiences, { status: 200 });
 }

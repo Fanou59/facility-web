@@ -1,5 +1,6 @@
 import Footer from "@/components/footer";
 import Header from "@/components/header";
+import ReactQueryProvider from "@/components/providers/react-query-provider";
 import type { Metadata } from "next";
 import { Inter, Montserrat } from "next/font/google";
 import { Toaster } from "sonner";
@@ -30,12 +31,14 @@ export default function RootLayout({
       <body
         className={`${montserrat.variable} ${inter.variable} antialiased bg-slate-50 text-slate-800`}
       >
-        <Toaster />
-        <div className="flex flex-col justify-between min-h-screen">
-          <Header />
-          <div className="flex-grow">{children}</div>
-          <Footer />
-        </div>
+        <ReactQueryProvider>
+          <Toaster />
+          <div className="flex flex-col justify-between min-h-screen">
+            <Header />
+            <div className="flex-grow">{children}</div>
+            <Footer />
+          </div>
+        </ReactQueryProvider>
       </body>
     </html>
   );
