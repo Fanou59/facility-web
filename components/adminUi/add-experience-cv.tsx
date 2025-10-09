@@ -1,5 +1,6 @@
 "use client";
 import { addExperienceCVAction } from "@/app/actions/addExperienceCV";
+import { updateExperienceAction } from "@/app/actions/updateExperience";
 import { cvSchema } from "@/schemas/cv";
 import { zodResolver } from "@hookform/resolvers/zod";
 import {
@@ -7,6 +8,7 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@radix-ui/react-popover";
+import { useQueryClient } from "@tanstack/react-query";
 import { CalendarIcon } from "lucide-react";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
@@ -26,6 +28,9 @@ import { Input } from "../ui/input";
 import { Textarea } from "../ui/textarea";
 
 interface AddExperienceCvProps {
+  initialData?: Partial<z.infer<typeof cvSchema>>;
+  experienceId?: string;
+  mode?: "create" | "edit";
   onSuccess?: () => void;
 }
 
@@ -40,7 +45,13 @@ function formatDate(date: Date | undefined) {
   });
 }
 
-export default function AddExperienceCv({ onSuccess }: AddExperienceCvProps) {
+export default function AddExperienceCv({
+  onSuccess,
+  initialData,
+  experienceId,
+  mode = "create",
+}: AddExperienceCvProps) {
+  const queryClient = useQueryClient();
   const [open, setOpen] = useState(false);
   const [date, setDate] = useState(new Date());
   const [month, setMonth] = useState(date);
@@ -49,10 +60,10 @@ export default function AddExperienceCv({ onSuccess }: AddExperienceCvProps) {
   const form = useForm<z.infer<typeof cvSchema>>({
     resolver: zodResolver(cvSchema),
     defaultValues: {
-      job: "",
-      company: "",
-      resume: "",
-      startDate: new Date().toISOString(),
+      job: initialData?.job || "",
+      company: initialData?.company || "",
+      resume: initialData?.resume || "",
+      startDate: initialData?.startDate || new Date().toISOString(),
     },
   });
 
@@ -64,11 +75,22 @@ export default function AddExperienceCv({ onSuccess }: AddExperienceCvProps) {
       formData.append("resume", data.resume);
       formData.append("startDate", data.startDate);
 
-      await addExperienceCVAction(formData);
-      toast.success("Expérience ajoutée avec succès !");
+      if (mode === "edit" && experienceId) {
+        formData.append("id", experienceId);
+        await updateExperienceAction(formData);
+        toast.success("Expérience modifiée avec succès !");
+      } else {
+        await addExperienceCVAction(formData);
+        toast.success("Expérience ajoutée avec succès !");
+      }
+
       form.reset();
+      queryClient.invalidateQueries({ queryKey: ["Experiences"] });
     } catch (e: any) {
-      toast.error(e.message || `Erreur lors de l'ajout de l'expérience`);
+      toast.error(
+        e.message ||
+          `Erreur lors de ${mode === "edit" ? "modification" : "création"}`
+      );
     }
   }
 
@@ -196,7 +218,7 @@ export default function AddExperienceCv({ onSuccess }: AddExperienceCvProps) {
             type="submit"
             className="px-8 py-3 bg-orange-500 hover:bg-orange-600 text-white font-bold rounded-full transition-all duration-300 shadow-lg transform hover:scale-105"
           >
-            Ajouter
+            {mode === "edit" ? "Modifier" : "Publier"}
           </Button>
         </div>
       </form>

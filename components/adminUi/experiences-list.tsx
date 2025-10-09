@@ -6,12 +6,14 @@ import { useState } from "react";
 import DeleteButton from "../delete-button";
 import EditButton from "../edit-button";
 import SpinnerPerso from "../ui/spinner-perso";
+import AddExperienceCv from "./add-experience-cv";
 
 type Experience = {
   id: string;
   job: string;
   company: string;
   startDate: string;
+  resume: string;
 };
 
 export default function ExperiencesList() {
@@ -31,7 +33,7 @@ export default function ExperiencesList() {
   });
 
   // Query pour récupérer les détails du service sélectionné
-  const { data: serviceDetails, isLoading: isLoadingDetails } =
+  const { data: experienceDetail, isLoading: isLoadingDetails } =
     useQuery<Experience>({
       queryKey: ["experiences", selectedExperienceId],
       queryFn: async () => {
@@ -85,21 +87,19 @@ export default function ExperiencesList() {
             </div>
 
             {/* Card des détails en dessous */}
-            {/* {selectedExperienceId === experience.id && (
+            {selectedExperienceId === experience.id && (
               <div className="mt-4 p-4 bg-gray-50 rounded-lg border">
                 {isLoadingDetails ? (
                   <SpinnerPerso />
-                ) : serviceDetails ? (
-                  <AddFormService
+                ) : experienceDetail ? (
+                  <AddExperienceCv
                     initialData={{
-                      title: serviceDetails.title,
-                      imageUrl: serviceDetails.imageUrl,
-                      alt: serviceDetails.alt,
-                      resume: serviceDetails.resume,
-                      description: serviceDetails.description,
-                      synthese: serviceDetails.synthese,
+                      job: experienceDetail.job,
+                      company: experienceDetail.company,
+                      resume: experienceDetail.resume,
+                      startDate: experienceDetail.startDate,
                     }}
-                    serviceId={serviceDetails.id}
+                    experienceId={experienceDetail.id}
                     mode="edit"
                     onSuccess={closeDetails}
                   />
@@ -107,7 +107,7 @@ export default function ExperiencesList() {
                   <div>Service non trouvé</div>
                 )}
               </div>
-            )} */}
+            )}
           </li>
         ))}
       </ul>
