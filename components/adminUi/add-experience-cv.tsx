@@ -53,9 +53,9 @@ export default function AddExperienceCv({
 }: AddExperienceCvProps) {
   const queryClient = useQueryClient();
   const [open, setOpen] = useState(false);
-  const [date, setDate] = useState(new Date());
-  const [month, setMonth] = useState(date);
-  const [value, setValue] = useState(formatDate(date));
+  // const [date, setDate] = useState(new Date());
+  // const [month, setMonth] = useState(date);
+  // const [value, setValue] = useState(formatDate(date));
 
   const form = useForm<z.infer<typeof cvSchema>>({
     resolver: zodResolver(cvSchema),
@@ -63,7 +63,8 @@ export default function AddExperienceCv({
       job: initialData?.job || "",
       company: initialData?.company || "",
       resume: initialData?.resume || "",
-      startDate: initialData?.startDate || new Date().toISOString(),
+      startDate:
+        initialData?.startDate || new Date().toISOString().split("T")[0],
     },
   });
 
@@ -83,9 +84,14 @@ export default function AddExperienceCv({
         await addExperienceCVAction(formData);
         toast.success("Expérience ajoutée avec succès !");
       }
-
-      form.reset();
-      queryClient.invalidateQueries({ queryKey: ["Experiences"] });
+      // NE PAS RESET en mode edit !
+      if (mode === "create") {
+        form.reset();
+      }
+      queryClient.invalidateQueries({ queryKey: ["experiences"] });
+      if (onSuccess) {
+        onSuccess();
+      }
     } catch (e: any) {
       toast.error(
         e.message ||
@@ -164,6 +170,7 @@ export default function AddExperienceCv({
                     <Popover open={open} onOpenChange={setOpen}>
                       <PopoverTrigger asChild>
                         <Button
+                          type="button"
                           id="date-picker"
                           variant="ghost"
                           className="absolute top-1/2 right-2 size-6 -translate-y-1/2"
@@ -184,11 +191,9 @@ export default function AddExperienceCv({
                             field.value ? new Date(field.value) : undefined
                           }
                           captionLayout="dropdown"
-                          month={month}
-                          onMonthChange={setMonth}
                           onSelect={(date) => {
                             if (date) {
-                              // Utiliser le format YYYY-MM-DD au lieu d'ISO
+                              // Utiliser le format YYYY-MM-DD
                               const year = date.getFullYear();
                               const month = String(
                                 date.getMonth() + 1

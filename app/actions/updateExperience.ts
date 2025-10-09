@@ -28,7 +28,7 @@ export async function updateExperienceAction(formData: FormData) {
       job: validatedData.job,
       resume: validatedData.resume,
       company: validatedData.company,
-      startDate: validatedData.startDate,
+      startDate: new Date(validatedData.startDate),
     };
 
     // Mise à jour en base de données avec Prisma
@@ -39,7 +39,7 @@ export async function updateExperienceAction(formData: FormData) {
 
     console.log("Experience mise à jour:", updatedExperience);
 
-    revalidatePath("/admin/services");
+    revalidatePath("/admin");
     return { success: true, service: updatedExperience };
   } catch (error) {
     console.error("Erreur lors de la mise à jour:", error);
