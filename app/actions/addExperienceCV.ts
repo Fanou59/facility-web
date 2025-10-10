@@ -1,7 +1,6 @@
 "use server";
 
-import { PrismaClient } from "@/lib/generated/prisma";
-const primsa = new PrismaClient();
+import { prisma } from "@/lib/prisma";
 
 export async function addExperienceCVAction(formData: FormData) {
   const job = formData.get("job") as string;
