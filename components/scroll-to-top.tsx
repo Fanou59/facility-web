@@ -25,7 +25,7 @@ export default function ScrollToTop() {
         scrollTimer = setTimeout(() => {
           setIsScrolling(false);
 
-          // Timer pour cacher le bouton après 3 secondes d'inactivité
+          // Timer pour cacher le bouton après 1/2 seconde d'inactivité
           hideTimer = setTimeout(() => {
             setIsVisible(false);
           }, 500);
@@ -50,14 +50,14 @@ export default function ScrollToTop() {
     });
   };
 
-  if (!isVisible) {
-    return null;
-  }
-
   return (
     <Button
       onClick={scrollToTop}
-      className="fixed bottom-8 right-8 z-50 p-3 rounded-full bg-orange-500 hover:bg-orange-600 text-white shadow-lg transform hover:scale-110 transition-all duration-300"
+      className={`fixed bottom-8 right-8 z-50 p-3 rounded-full bg-orange-500 hover:bg-orange-600 text-white shadow-lg transform hover:scale-110 transition-all duration-500 ${
+        isVisible
+          ? "opacity-100 translate-y-0"
+          : "opacity-0 translate-y-4 pointer-events-none"
+      }`}
       size="icon"
     >
       <ChevronUp className="h-5 w-5" />
