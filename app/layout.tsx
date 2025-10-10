@@ -5,6 +5,7 @@ import type { Metadata } from "next";
 import { Inter, Montserrat } from "next/font/google";
 import { Toaster } from "sonner";
 import "./globals.css";
+import ScrollToTop from "@/components/scroll-to-top";
 
 const montserrat = Montserrat({
   variable: "--font-montserrat",
@@ -35,7 +36,10 @@ export default function RootLayout({
           <Toaster />
           <div className="flex flex-col justify-between min-h-screen">
             <Header />
-            <div className="flex-grow">{children}</div>
+            <div className="flex-grow">
+              {children}
+              <ScrollToTop />
+            </div>
             <Footer />
           </div>
         </ReactQueryProvider>
