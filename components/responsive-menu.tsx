@@ -1,8 +1,15 @@
 "use client";
+import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
 import { Menu } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
-import { Sheet, SheetContent, SheetTrigger } from "./ui/sheet";
+import {
+  Sheet,
+  SheetContent,
+  SheetDescription,
+  SheetTitle,
+  SheetTrigger,
+} from "./ui/sheet";
 
 export default function ResponsiveMenu() {
   const [open, setOpen] = useState(false);
@@ -16,6 +23,12 @@ export default function ResponsiveMenu() {
         <Menu className="h-6 w-6 sm:hidden" />
       </SheetTrigger>
       <SheetContent className="w-xs">
+        <VisuallyHidden>
+          <SheetTitle>Menu de navigation</SheetTitle>
+          <SheetDescription>
+            Menu de navigation principal du site
+          </SheetDescription>
+        </VisuallyHidden>
         <div className="flex flex-col gap-4 px-2 py-4 items-center text-lg">
           <Link href={"/"} onClick={handleLinkClick}>
             Accueil

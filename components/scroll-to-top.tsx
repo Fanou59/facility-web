@@ -6,13 +6,35 @@ import { useEffect, useState } from "react";
 
 export default function ScrollToTop() {
   const [isVisible, setIsVisible] = useState(false);
+  const [isScrolling, setIsScrolling] = useState(false);
 
   useEffect(() => {
+    let scrollTimer: NodeJS.Timeout;
+    let hideTimer: NodeJS.Timeout;
+
     const toggleVisibility = () => {
       if (window.pageYOffset > 300) {
         setIsVisible(true);
+        setIsScrolling(true);
+
+        // Clear les timers précédents
+        clearTimeout(scrollTimer);
+        clearTimeout(hideTimer);
+
+        // Timer pour détecter la fin du scroll
+        scrollTimer = setTimeout(() => {
+          setIsScrolling(false);
+
+          // Timer pour cacher le bouton après 3 secondes d'inactivité
+          hideTimer = setTimeout(() => {
+            setIsVisible(false);
+          }, 500);
+        }, 100);
       } else {
         setIsVisible(false);
+        setIsScrolling(false);
+        clearTimeout(scrollTimer);
+        clearTimeout(hideTimer);
       }
     };
 
