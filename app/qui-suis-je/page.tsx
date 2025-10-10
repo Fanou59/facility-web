@@ -12,7 +12,7 @@ export default async function QuiSuisJe() {
         <TimelineLayout />
       </Section>
       <Section title="Mon expertise">
-        <div className="flex flex-wrap justify-center gap-4 max-w-2xl mx-auto">
+        <div className="flex flex-wrap justify-center gap-4 max-w-2xl mx-auto px-4 md:px-0">
           <Badge>Stratégie marketing</Badge>
           <Badge>Stratégie de contenu</Badge>
           <Badge>Création de valeur</Badge>

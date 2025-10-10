@@ -61,7 +61,7 @@ export function ContactForm() {
   }
   if (sent) {
     return (
-      <div className="p-8 bg-orange-50 border border-orange-200 rounded-lg text-orange-900 text-center space-y-4">
+      <div className="p-6 bg-orange-50 border border-orange-200 rounded-lg text-orange-900 text-center space-y-4">
         <h2 className="text-2xl font-bold">Message envoyé !</h2>
         <p>
           Pour passer à l'action sans attendre, je vous invite à prendre
@@ -78,7 +78,7 @@ export function ContactForm() {
           </DialogTrigger>
           <div className="flex justify-center w-full">
             <DialogContent className="max-w-md w-auto p-0 overflow-hidden rounded-2xl shadow-2xl bg-white ">
-              <DialogTitle className="sr-only">
+              <DialogTitle className="px-4 py-3 text-lg font-semibold border-b">
                 Choisissez la date qui vous convient
               </DialogTitle>
               <div>

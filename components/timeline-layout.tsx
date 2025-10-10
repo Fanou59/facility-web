@@ -42,7 +42,7 @@ export const TimelineLayout = () => {
   if (!data) return <div>Aucun service trouvé.</div>;
 
   return (
-    <Timeline className="mt-8">
+    <Timeline className="mt-8 px-4 md:px-0">
       {data.map((experience) => (
         <TimelineItem key={experience.id}>
           <TimelineHeader>
