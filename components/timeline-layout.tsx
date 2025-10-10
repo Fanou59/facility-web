@@ -9,7 +9,7 @@ import {
   TimelineTitle,
 } from "@/components/ui/timeline";
 import { useQuery } from "@tanstack/react-query";
-import SpinnerPerso from "./ui/spinner-perso";
+import { Skeleton } from "./ui/skeleton";
 
 type Experience = {
   id: string;
@@ -18,6 +18,26 @@ type Experience = {
   startDate: string;
   resume: string;
 };
+
+const TimelineSkeleton = () => (
+  <Timeline className="mt-8 px-4 md:px-0">
+    {Array.from({ length: 3 }).map((_, index) => (
+      <TimelineItem key={index}>
+        <TimelineHeader>
+          <div className="flex flex-col space-y-2">
+            <Skeleton className="h-4 w-24" />
+            <Skeleton className="h-6 w-48" />
+            <Skeleton className="h-4 w-32" />
+          </div>
+        </TimelineHeader>
+        <div className="mt-3">
+          <Skeleton className="h-4 w-full mb-2" />
+          <Skeleton className="h-4 w-3/4" />
+        </div>
+      </TimelineItem>
+    ))}
+  </Timeline>
+);
 
 // Fonction pour formater la date
 const formatDate = (dateString: string): string => {
@@ -37,7 +57,7 @@ export const TimelineLayout = () => {
       return res.json();
     },
   });
-  if (isLoading) return <SpinnerPerso />;
+  if (isLoading) return <TimelineSkeleton />;
   if (error) return <div>Erreur: {error.message}</div>;
   if (!data) return <div>Aucun service trouvé.</div>;
 
