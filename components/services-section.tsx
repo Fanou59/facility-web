@@ -6,7 +6,7 @@ import PlusAddService from "./plus-add-service";
 import Section from "./section";
 
 type Service = {
-  id: string;
+  id: number;
   title: string;
   resume: string;
   imageUrl: string;
