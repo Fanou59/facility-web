@@ -9,6 +9,7 @@ import { prisma } from "@/lib/connect";
 import ContactSection from "@/components/contact-section";
 import PlusAddService from "@/components/plus-add-service";
 import { auth } from "@/lib/auth";
+import { JsonValue } from "@prisma/client/runtime/library";
 import { headers } from "next/headers";
 
 type Service = {
@@ -18,7 +19,7 @@ type Service = {
   description: string;
   imageUrl: string;
   alt: string;
-  synthese: string[] | null;
+  synthese: JsonValue;
 };
 
 export default async function MesServices() {
