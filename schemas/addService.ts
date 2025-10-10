@@ -24,5 +24,4 @@ export const addServiceSchema = z.object({
       z.string().min(1, "Chaque synthèse doit contenir au moins 3 caractères.")
     )
     .length(3, { message: "Il faut exactement 3 synthèses." }),
-  // ...other fields...
 });

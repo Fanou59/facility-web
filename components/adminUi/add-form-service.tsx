@@ -73,7 +73,6 @@ export default function AddFormService({
       form.reset();
       queryClient.invalidateQueries({ queryKey: ["services"] });
 
-      // Appeler le callback onSuccess si fourni
       if (onSuccess) {
         onSuccess();
       }

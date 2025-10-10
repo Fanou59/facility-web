@@ -48,11 +48,9 @@ export function ContactForm() {
         body: JSON.stringify(values),
       });
       if (response.ok) {
-        // Afficher un message de succès ou notifier l'utilisateur
         setSent(true);
         form.reset();
       } else {
-        // Afficher un message d'erreur
         alert("Erreur lors de l'envoi du message.");
       }
     } catch (error) {
@@ -88,8 +86,8 @@ export function ContactForm() {
                   style={{
                     border: "none",
                     width: 500,
-                    maxWidth: "100%", // Limite la largeur à 400px
-                    height: 600, // Hauteur réduite pour éviter le débordement
+                    maxWidth: "100%",
+                    height: 600,
                     display: "block",
                   }}
                   id="zcal-invite"

@@ -3,7 +3,6 @@ import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
 
-//Modifier description par résumé
 type CardServicesProps = {
   title: string;
   resume: string;

@@ -8,7 +8,7 @@ export async function GET(
   try {
     const { id } = await params;
     const serviceId = parseInt(id);
-    // Vérifier que c'est un nombre valide
+
     if (isNaN(serviceId)) {
       return NextResponse.json({ error: "ID invalide" }, { status: 400 });
     }

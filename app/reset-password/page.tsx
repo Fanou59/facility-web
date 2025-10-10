@@ -31,7 +31,7 @@ const resetPasswordFormSchema = z.object({
 function ResetPasswordForm() {
   const router = useRouter();
   const searchParams = useSearchParams();
-  const token = searchParams.get("token"); // Récupérer le jeton de l'URL
+  const token = searchParams.get("token");
 
   const form = useForm<z.infer<typeof resetPasswordFormSchema>>({
     resolver: zodResolver(resetPasswordFormSchema),
@@ -55,7 +55,7 @@ function ResetPasswordForm() {
       });
 
       toast.success("Votre mot de passe a été réinitialisé avec succès.");
-      router.push("/login"); // Rediriger l'utilisateur vers la page de connexion
+      router.push("/login");
     } catch (err: any) {
       toast.error(
         err.message || "Erreur lors de la réinitialisation du mot de passe."

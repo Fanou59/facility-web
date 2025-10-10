@@ -24,7 +24,7 @@ export default function LoginPage() {
         setError(data.error || "Erreur lors de l'inscription");
         return;
       }
-      router.push("/"); // Redirige vers la page d'accueil après inscription
+      router.push("/");
     } catch (err: any) {
       setError("Erreur lors de la connexion");
     }

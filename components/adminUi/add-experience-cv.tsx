@@ -53,9 +53,6 @@ export default function AddExperienceCv({
 }: AddExperienceCvProps) {
   const queryClient = useQueryClient();
   const [open, setOpen] = useState(false);
-  // const [date, setDate] = useState(new Date());
-  // const [month, setMonth] = useState(date);
-  // const [value, setValue] = useState(formatDate(date));
 
   const form = useForm<z.infer<typeof cvSchema>>({
     resolver: zodResolver(cvSchema),

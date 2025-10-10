@@ -55,7 +55,7 @@ export default function LoginPage() {
     try {
       await authClient.requestPasswordReset({
         email: email,
-        redirectTo: "/reset-password", // URL de la page de réinitialisation de mot de passe
+        redirectTo: "/reset-password",
       });
       toast.success(
         "Un lien de réinitialisation a été envoyé à votre adresse email."

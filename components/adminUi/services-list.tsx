@@ -44,7 +44,7 @@ export default function ServicesList() {
         if (!res.ok) throw new Error("Erreur lors du chargement du service");
         return res.json();
       },
-      enabled: !!selectedServiceId, // Ne lance la query que si un service est sélectionné
+      enabled: !!selectedServiceId,
     });
 
   if (isLoading) return <SpinnerPerso />;

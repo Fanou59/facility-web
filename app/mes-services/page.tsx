@@ -11,12 +11,21 @@ import PlusAddService from "@/components/plus-add-service";
 import { auth } from "@/lib/auth";
 import { headers } from "next/headers";
 
+type Service = {
+  id: string;
+  title: string;
+  description: string;
+  imageUrl: string;
+  alt: string;
+  synthese: string[] | null;
+};
+
 export default async function MesServices() {
   const headersList = await headers();
   const session = await auth.api.getSession({
     headers: headersList,
   });
-  const detailServices = await prisma.services.findMany();
+  const detailServices: Service[] = await prisma.services.findMany();
   return (
     <PageContainer>
       <Section

@@ -5,12 +5,20 @@ import CardServices from "./card-services";
 import PlusAddService from "./plus-add-service";
 import Section from "./section";
 
+type Service = {
+  id: string;
+  title: string;
+  resume: string;
+  imageUrl: string;
+  alt: string;
+};
+
 export default async function ServicesSection() {
   const headersList = await headers();
   const session = await auth.api.getSession({
     headers: headersList,
   });
-  const services = await prisma.services.findMany();
+  const services: Service[] = await prisma.services.findMany();
 
   return (
     <Section
