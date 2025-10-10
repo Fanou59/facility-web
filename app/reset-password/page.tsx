@@ -16,6 +16,7 @@ import { Input } from "@/components/ui/input";
 import { authClient } from "@/lib/auth-client";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useRouter, useSearchParams } from "next/navigation";
+import { Suspense } from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "sonner";
 import z from "zod";
@@ -27,7 +28,7 @@ const resetPasswordFormSchema = z.object({
     .min(8, "Le mot de passe doit contenir au moins 8 caractères."),
 });
 
-export default function ResetPasswordPage() {
+function ResetPasswordForm() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const token = searchParams.get("token"); // Récupérer le jeton de l'URL
@@ -100,4 +101,10 @@ export default function ResetPasswordPage() {
       </Section>
     </PageContainer>
   );
+}
+
+export default function ResetPasswordPage() {
+  <Suspense fallback={<div>Chargement...</div>}>
+    <ResetPasswordForm />
+  </Suspense>;
 }
