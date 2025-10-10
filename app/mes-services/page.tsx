@@ -14,6 +14,7 @@ import { headers } from "next/headers";
 type Service = {
   id: number;
   title: string;
+  resume: string;
   description: string;
   imageUrl: string;
   alt: string;
