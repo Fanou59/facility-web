@@ -14,9 +14,9 @@ export default async function ServicesSection() {
 
   return (
     <Section
-      title="Nos services"
+      title="Mes services"
       bgColor="bg-slate-100"
-      description="Nous vous proposons une approche complète pour maîtriser votre marché."
+      description="Je vous propose une approche complète pour maîtriser votre marché."
     >
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {services.map((service) => (
