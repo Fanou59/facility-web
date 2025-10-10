@@ -63,6 +63,7 @@ export const auth = betterAuth({
       await sendResetPasswordEmail({ to: user.email, url });
     },
   },
+  changePassword: { enabled: true },
   user: {
     additionalFields: {
       firstName: { type: "string", required: false },

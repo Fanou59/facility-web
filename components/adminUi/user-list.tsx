@@ -6,6 +6,7 @@ import DeleteButton from "../delete-button";
 import EditButton from "../edit-button";
 import SpinnerPerso from "../ui/spinner-perso";
 import UpdateUserForm from "./update-user-form";
+import ChangePasswordForm from "../form-change-password";
 
 type User = {
   id: string;
@@ -20,6 +21,9 @@ type User = {
 export default function UserList() {
   const queryClient = useQueryClient();
   const [selectedUserId, setselectedUserId] = useState<string | null>(null);
+  const [passwordChangeUserId, setPasswordChangeUserId] = useState<
+    string | null
+  >(null);
 
   const { data, isLoading, error } = useQuery<User[]>({
     queryKey: ["user"],
@@ -39,6 +43,15 @@ export default function UserList() {
       setselectedUserId(null);
     } else {
       setselectedUserId(id);
+      setPasswordChangeUserId(null);
+    }
+  };
+  const handlePasswordChange = (id: string) => {
+    if (passwordChangeUserId === id) {
+      setPasswordChangeUserId(null);
+    } else {
+      setPasswordChangeUserId(id);
+      setselectedUserId(null); // Fermer le formulaire d'édition si ouvert
     }
   };
 
@@ -55,6 +68,7 @@ export default function UserList() {
       <ul className="flex flex-col items-center w-full max-w-3xl">
         {data.map((user) => {
           const isSelected = selectedUserId === user.id;
+          const isPasswordChangeSelected = passwordChangeUserId === user.id;
           const selectedUser = data.find((u) => u.id === selectedUserId);
 
           return (
@@ -71,6 +85,16 @@ export default function UserList() {
                   onClick={() => handleEdit(user.id)}
                   isActive={isSelected}
                 />
+                <button
+                  onClick={() => handlePasswordChange(user.id)}
+                  className={`px-3 py-1 text-sm rounded ${
+                    isPasswordChangeSelected
+                      ? "bg-blue-600 text-white"
+                      : "bg-blue-500 text-white hover:bg-blue-600"
+                  }`}
+                >
+                  🔑
+                </button>
                 <DeleteButton onClick={() => handleDelete(user.id)} />
               </div>
 
@@ -80,6 +104,15 @@ export default function UserList() {
                     initialData={selectedUser}
                     userId={selectedUser.id}
                     onSuccess={() => setselectedUserId(null)}
+                  />
+                </div>
+              )}
+
+              {isPasswordChangeSelected && (
+                <div className="w-full mt-2">
+                  <ChangePasswordForm
+                    userId={user.id}
+                    onSuccess={() => setPasswordChangeUserId(null)}
                   />
                 </div>
               )}

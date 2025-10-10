@@ -104,7 +104,9 @@ function ResetPasswordForm() {
 }
 
 export default function ResetPasswordPage() {
-  <Suspense fallback={<div>Chargement...</div>}>
-    <ResetPasswordForm />
-  </Suspense>;
+  return (
+    <Suspense fallback={<div>Chargement...</div>}>
+      <ResetPasswordForm />
+    </Suspense>
+  );
 }
