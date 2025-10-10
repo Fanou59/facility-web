@@ -12,7 +12,7 @@ import { auth } from "@/lib/auth";
 import { headers } from "next/headers";
 
 type Service = {
-  id: string;
+  id: number;
   title: string;
   description: string;
   imageUrl: string;
