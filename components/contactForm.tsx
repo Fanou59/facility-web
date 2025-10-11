@@ -16,6 +16,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 
+import { Checkbox } from "@/components/ui/checkbox";
 import { contactFormSchema } from "@/schemas/contact";
 import {
   Dialog,
@@ -37,6 +38,7 @@ export function ContactForm() {
       message: "",
       phone: "",
       surname: "",
+      acceptPrivacy: false,
     },
   });
 
@@ -175,6 +177,36 @@ export function ContactForm() {
                   />
                 </FormControl>
                 <FormMessage />
+              </FormItem>
+            )}
+          />
+
+          <FormField
+            control={form.control}
+            name="acceptPrivacy"
+            render={({ field }) => (
+              <FormItem className="md:col-span-2 flex flex-row items-start space-x-3 space-y-0">
+                <FormControl>
+                  <Checkbox
+                    checked={field.value}
+                    onCheckedChange={field.onChange}
+                  />
+                </FormControl>
+                <div className="space-y-1 leading-none">
+                  <span className="text-sm text-gray-700 leading-relaxed block">
+                    J'accepte que les informations saisies soient utilisées pour
+                    me recontacter dans le cadre de ma demande et de la relation
+                    commerciale qui peut en découler. En savoir plus sur notre{" "}
+                    <a
+                      href="/politique-confidentialite"
+                      className="text-orange-500 hover:text-orange-600 underline"
+                    >
+                      politique de confidentialité
+                    </a>
+                    .
+                  </span>
+                  <FormMessage />
+                </div>
               </FormItem>
             )}
           />

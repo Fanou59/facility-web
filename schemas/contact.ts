@@ -17,4 +17,7 @@ export const contactFormSchema = z.object({
   phone: z.string().regex(/^(\+33|0)[1-9](\d{2}){4}$/, {
     message: "Le numéro de téléphone n'est pas valide.",
   }),
+  acceptPrivacy: z.boolean().refine((val) => val === true, {
+    message: "Vous devez accepter la politique de confidentialité.",
+  }),
 });
