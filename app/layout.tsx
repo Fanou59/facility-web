@@ -19,8 +19,10 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Facility-Web",
-  description: "Votre partenaire en marketing stratégique",
+  title:
+    "Agence Marketing Stratégique : Croissance Durable & Branding | Facility-Web",
+  description:
+    "Agence de marketing stratégique spécialisée en croissance durable. Définition d'offre, branding, et plan d'action concrets.",
 };
 
 export default function RootLayout({
