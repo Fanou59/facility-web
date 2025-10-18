@@ -25,7 +25,12 @@ export default function CardDescriptionServices({
         </CardTitle>
       </CardHeader>
       <CardContent>
-        <p className="text-gray-600">{description}</p>
+        {description && (
+          <div
+            className="text-gray-600 max-w-none mb-4"
+            dangerouslySetInnerHTML={{ __html: description }}
+          />
+        )}
         <div className="flex justify-center">
           <SyntheseService synthese={synthese} />
         </div>
