@@ -1,6 +1,7 @@
 "use server";
 import { prisma } from "@/lib/prisma";
 import { userSchema } from "@/schemas/user";
+import { revalidatePath } from "next/cache";
 import { z } from "zod";
 
 export async function updateUserAction(
@@ -27,6 +28,8 @@ export async function updateUserAction(
         presentation: validatedData.presentation,
       },
     });
+
+    revalidatePath("/");
 
     return { success: true, user: updatedUser };
   } catch (error: any) {
