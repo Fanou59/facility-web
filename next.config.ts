@@ -12,7 +12,15 @@ const nextConfig: NextConfig = {
       "*.prisma": {
         loaders: ["raw-loader"],
       },
-    }
+    },
+  },
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "res.cloudinary.com",
+      },
+    ],
   },
 };
 

@@ -1,10 +1,9 @@
 "use server";
 
 import { prisma } from "@/lib/prisma";
+import { uploadToCloudinary } from "@/lib/uploadToCloudinary";
 import { addServiceSchema } from "@/schemas/addService";
-import { mkdir, writeFile } from "fs/promises";
 import { revalidatePath } from "next/cache";
-import path from "path";
 
 export async function updateServiceAction(formData: FormData) {
   try {
@@ -44,29 +43,19 @@ export async function updateServiceAction(formData: FormData) {
       synthese: validatedData.synthese,
     };
 
-    // Si une nouvelle image est fournie, traiter le fichier
+    // Si une nouvelle image est fournie, uploader vers Cloudinary
     if (validatedData.imageUrl && validatedData.imageUrl instanceof File) {
-      const file = validatedData.imageUrl;
-      const bytes = await file.arrayBuffer();
-      const buffer = Buffer.from(bytes);
-
-      // Générer un nom de fichier unique
-      const fileName = `${Date.now()}-${file.name}`;
-      const uploadDir = path.join(process.cwd(), "public/assets/images");
-      const filePath = path.join(uploadDir, fileName);
-
-      // Créer le répertoire s'il n'existe pas
       try {
-        await mkdir(uploadDir, { recursive: true });
+        // Upload vers Cloudinary - retourne une URL comme:
+        // "https://res.cloudinary.com/xxx/image/upload/v123/facility-services/image.png"
+        const cloudinaryUrl = await uploadToCloudinary(validatedData.imageUrl);
+
+        // Cette URL est stockée dans la BDD
+        updateData.imageUrl = cloudinaryUrl;
       } catch (error) {
-        // Le répertoire existe déjà
+        console.error("Erreur lors de l'upload vers Cloudinary:", error);
+        throw new Error("Erreur lors de l'upload de l'image");
       }
-
-      // Écrire le fichier
-      await writeFile(filePath, buffer);
-
-      // Stocker l'URL relative dans la base de données
-      updateData.imageUrl = `/assets/images/${fileName}`;
     }
 
     // Mise à jour en base de données avec Prisma
