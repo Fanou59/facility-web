@@ -31,10 +31,10 @@ export default async function MesServices() {
   return (
     <PageContainer>
       <Section
-        title="Une approche stratégique complète"
+        title="Une Approche Stratégique du Cycle de Vie Produit"
         bgColor="bg-slate-900"
         titleColor="text-white"
-        description="Je vous aide à construire une stratégie marketing solide, étape par étape."
+        description="Je vous accompagne pour élaborer une stratégie Produit et Go-to-Market complète et structurée, garantissant un alignement parfait de votre offre avec le marché, étape par étape."
         descriptionColor="text-slate-300"
       ></Section>
       <Section
