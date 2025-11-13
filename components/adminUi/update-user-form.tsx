@@ -17,7 +17,7 @@ import {
   FormMessage,
 } from "../ui/form";
 import { Input } from "../ui/input";
-import { Textarea } from "../ui/textarea";
+import { TiptapEditor } from "../tiptapeditor";
 
 interface UpdateUserFormProps {
   initialData?: Partial<z.infer<typeof userSchema>>;
@@ -162,11 +162,17 @@ export default function UpdateUserForm({
               <FormItem>
                 <FormLabel>Présentation</FormLabel>
                 <FormControl>
-                  <Textarea
+                  <TiptapEditor
+                    value={field.value}
+                    onChange={field.onChange}
+                    placeholder="Blabla..."
+                    className="min-h-[200px]"
+                  />
+                  {/* <Textarea
                     placeholder="Blabla..."
                     {...field}
                     className="min-h-[150px]"
-                  />
+                  /> */}
                 </FormControl>
                 <FormMessage />
               </FormItem>

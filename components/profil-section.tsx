@@ -23,7 +23,13 @@ export default async function ProfilSection() {
         <h3 className="mt-2 text-xl md:text-2xl text-orange-500 font-semibold">
           {user.actualJob}
         </h3>
-        <p className="mt-4 text-gray-600 max-w-2xl">{user.presentation}</p>
+        {user.presentation && (
+          <p
+            className="mt-4 text-gray-600 max-w-2xl"
+            dangerouslySetInnerHTML={{ __html: user.presentation }}
+          />
+        )}
+        {/* <p className="mt-4 text-gray-600 max-w-2xl">{user.presentation}</p> */}
       </div>
     </section>
   );
