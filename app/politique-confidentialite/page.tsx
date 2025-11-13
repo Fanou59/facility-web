@@ -165,17 +165,81 @@ export default function PolitiqueConfidentialite() {
             techniques et organisationnelles pour garantir la protection des
             données (<span className="font-semibold">art. 28 du RGPD</span>).
           </p>
-
+          <h4 className="text-lg font-semibold mt-4 mb-3">
+            Identification de nos principaux sous-traitant techniques
+          </h4>
+          <p>
+            fin d'assurer le fonctionnement technique et l'hébergement de notre
+            site et des données qu'il collecte, nous faisons appel aux
+            prestataires de services techniques suivants, qui agissent en notre
+            nom et sous nos instructions :
+          </p>
+          <ul className="list-disc ml-6 space-y-2">
+            <li>
+              <span className="font-semibold">
+                Hébergement du site (Frontend/Backend) : Vercem Inc.
+              </span>
+              pour l'infrastructure d'hébergement.
+            </li>
+            <li>
+              <span className="font-semibold">
+                Base de Données (Stockage) : Neon Inc.
+              </span>
+              pour le service de base de données.
+            </li>
+          </ul>
+          <p>
+            Nous avons mis en place un Contrat de Traitement des Données (DPA)
+            avec ces sous-traitants pour s'assurer qu'ils garantissent un niveau
+            de sécurité et de confidentialité approprié pour vos données.
+          </p>
           <h3 className="text-xl font-semibold mt-6 mb-3">
             Analyse de trafic :
           </h3>
-          <p>Comme Google Analytics</p>
+          <p>
+            <span className="font-bold">Nature du traitement : </span>Nous
+            utilisons les services de Google Analytics pour mesurer l'audience
+            de notre site, analyser le comportement de navigation des
+            utilisateurs et améliorer nos services. Ce service implique
+            l'utilisation de cookies et autres traceurs.
+          </p>
 
           <p>
-            Nous devons parfois permettre à nos partenaires de traiter, en notre
-            nom, les informations personnelles que nous détenons sur vous aux
-            fins énoncées dans cette politique ou pour toute autre raison
-            requise par la loi.
+            <span className="font-bold">Données Concernées : </span>Ces outils
+            peuvent collecter des informations telles que votre adresse IP
+            anonymisée, les pages consultées, la durée de la visite, et le type
+            de dispositif utilisé.
+          </p>
+          <p>
+            <span className="font-bold">Base Légale : </span>Ce traitement est
+            strictement fondé sur votre consentement exprès (Article 6.1.a du
+            RGPD).
+          </p>
+          <p>
+            <span className="font-bold">Votre consentement : </span>Conformément
+            aux directives en vigueur, le dépôt de ces traceurs sur votre
+            terminal n'est réalisé qu'après avoir recueilli votre consentement
+            via le bandeau de gestion des cookies (Consent Management Platform -
+            CMP) qui s'affiche lors de votre première visite.
+          </p>
+          <p>
+            <span className="font-bold">Transfert de données : </span>
+            L'utilisation de Google Analytics peut entraîner le transfert de vos
+            données vers Google aux États-Unis. Ces transferts sont encadrés par
+            des mécanismes légaux appropriés, tels que les Clauses
+            Contractuelles Types de la Commission Européenne, afin d'assurer un
+            niveau de protection suffisant pour vos données.
+          </p>
+          <p>
+            <span className="font-bold">
+              Gestion et Retrait du Consentement :{" "}
+            </span>
+            Vous avez le droit de retirer votre consentement à tout moment et
+            sans justification, en cliquant sur le lien de gestion des cookies
+            disponible sur notre site (ou en modifiant les paramètres de votre
+            navigateur). Le retrait de votre consentement ne compromet pas la
+            licéité du traitement fondé sur le consentement effectué avant ce
+            retrait.
           </p>
           <p>
             Les données personnelles des Clients collectées sont hébergées en{" "}
