@@ -942,14 +942,6 @@ export default function MentionsLegales() {
             visités, et n'assumera en conséquence aucune responsabilité de ce
             fait.
           </p>
-          <p>
-            Sauf si vous décidez de désactiver les cookies, vous acceptez que le
-            site puisse les utiliser. Vous pouvez à tout moment désactiver ces
-            cookies et ce gratuitement à partir des possibilités de
-            désactivation qui vous sont offertes et rappelées ci-après, sachant
-            que cela peut réduire ou empêcher l'accessibilité à tout ou partie
-            des Services proposés par le site.
-          </p>
           <h3 className="text-xl font-semibold mt-6 mb-3">
             9.2. Cookies et Traceurs
           </h3>
