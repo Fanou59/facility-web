@@ -87,11 +87,14 @@ export default function PolitiqueCookie() {
           </h2>
 
           <h3 className="text-xl font-semibold mt-6 mb-3">
-            Cookies strictement nécessaires
+            1. Cookies strictement nécessaires (gestion du consentement)
           </h3>
           <p className="mb-4">
-            <span className="font-semibold">3 cookies</span> de ce type sont
-            utilisés sur notre site.
+            Ces cookies sont indispensables au bon fonctionnement du site et ne
+            nécessitent pas votre consentement. Ils servent notamment à
+            enregistrer votre choix concernant les autres cookies. La gestion de
+            votre consentement est assurée par notre solution partenaire,
+            Axeptio.
           </p>
 
           <div className="overflow-x-auto">
@@ -179,7 +182,98 @@ export default function PolitiqueCookie() {
               </tbody>
             </table>
           </div>
+          <h3 className="text-xl font-semibold mt-6 mb-3">
+            2. Cookies de Statistiques (Google Analytics)
+          </h3>
+          <p className="mb-4">
+            Ces cookies (ou traceurs) nous permettent de mesurer l'audience de
+            notre site, d'analyser le comportement de navigation et d'évaluer
+            les performances de nos services.
+          </p>
+          <ul className="list-disc ml-6 space-y-2">
+            <li>
+              <span className="font-semibold">Base Légale : </span>Leur dépôt
+              est strictement fondé sur votre consentement exprès. Si vous
+              n'acceptez pas ces cookies, ils ne seront pas activés et nous ne
+              pourrons pas mesurer votre visite.
+            </li>
+          </ul>
 
+          <div className="overflow-x-auto">
+            <table className="min-w-full bg-white border border-gray-300 rounded-lg">
+              <thead className="bg-gray-50">
+                <tr>
+                  <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider border-b">
+                    Nom du cookie
+                  </th>
+                  <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider border-b">
+                    Domaine
+                  </th>
+                  <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider border-b">
+                    Type
+                  </th>
+                  <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider border-b">
+                    Expiration
+                  </th>
+                  <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider border-b">
+                    Description
+                  </th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-gray-200">
+                <tr>
+                  <td className="px-4 py-3 text-sm font-mono text-gray-900">
+                    _ga
+                  </td>
+                  <td className="px-4 py-3 text-sm text-gray-900">
+                    www.facility-web.fr
+                  </td>
+                  <td className="px-4 py-3 text-sm text-gray-900">
+                    Tiers (Google)
+                  </td>
+                  <td className="px-4 py-3 text-sm text-gray-900">13 mois</td>
+                  <td className="px-4 py-3 text-sm text-gray-900">
+                    Enregistre un identifiant unique utilisé pour générer des
+                    données statistiques sur la façon dont le visiteur utilise
+                    le site.
+                  </td>
+                </tr>
+                <tr>
+                  <td className="px-4 py-3 text-sm font-mono text-gray-900">
+                    _gid
+                  </td>
+                  <td className="px-4 py-3 text-sm text-gray-900">
+                    www.facility-web.fr
+                  </td>
+                  <td className="px-4 py-3 text-sm text-gray-900">
+                    Tiers (Google)
+                  </td>
+                  <td className="px-4 py-3 text-sm text-gray-900">24 heures</td>
+                  <td className="px-4 py-3 text-sm text-gray-900">
+                    Enregistre un identifiant unique utilisé pour générer des
+                    données statistiques sur la façon dont le visiteur utilise
+                    le site.
+                  </td>
+                </tr>
+                <tr>
+                  <td className="px-4 py-3 text-sm font-mono text-gray-900">
+                    _gat
+                  </td>
+                  <td className="px-4 py-3 text-sm text-gray-900">
+                    www.facility-web.fr
+                  </td>
+                  <td className="px-4 py-3 text-sm text-gray-900">
+                    Tiers (Google)
+                  </td>
+                  <td className="px-4 py-3 text-sm text-gray-900">Session</td>
+                  <td className="px-4 py-3 text-sm text-gray-900">
+                    Utilisé par Google Analytics pour limiter le taux de
+                    demande.
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
           <h2 className="text-2xl font-bold mt-8 mb-4">
             Vos préférences concernant les cookies
           </h2>
@@ -187,12 +281,29 @@ export default function PolitiqueCookie() {
           <p>
             Quand vous arrivez pour la première fois sur le site, un bandeau
             cookie vous propose d'accepter ou de refuser les Cookies qui ne sont
-            pas essentiels au fonctionnement du site. Vous pouvez
-            refuser/désactiver les Cookies à tout moment, à l'exception des
-            Cookies nécessaires au fonctionnement stable du site. Vous avez la
-            possibilité de modifier à tout moment vos préférences relatives à la
-            gestion des cookies.
+            pas essentiels au fonctionnement du site.
           </p>
+          <p>
+            Vous pouvez retirer ou modifier votre consentement à tout moment, à
+            l'exception des cookies nécessaires au fonctionnement stable du
+            site. Pour ce faire, vous avez la possibilité de modifier à tout
+            moment vos préférences :
+          </p>
+          <ul className="list-disc ml-6 space-y-2">
+            <li>
+              <span className="font-semibold">
+                Via le bandeau ou l'icône de gestion des cookies
+              </span>{" "}
+              disponible en permanence sur le site (généralement en bas de
+              page).
+            </li>
+            <li>
+              <span className="font-semibold">
+                En paramétrant votre navigateur
+              </span>{" "}
+              pour bloquer ou supprimer les cookies.
+            </li>
+          </ul>
         </div>
       </Section>
     </PageContainer>
