@@ -19,10 +19,10 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title:
-    "Facility-web | Agence Marketing Stratégique : Croissance Durable & Branding",
+  title: "Facility-web | Conseil en Stratégie Produit & Go-to-Market (PMM)",
+
   description:
-    "Agence de marketing stratégique spécialisée en croissance durable. Définition d'offre, branding, et plan d'action concrets.",
+    "Expertise en Stratégie Produit, Positionnement (PMM) et exécution Go-to-Market. Alignez votre offre sur le marché et accélérez votre croissance mesurable.",
 };
 
 export default function RootLayout({
