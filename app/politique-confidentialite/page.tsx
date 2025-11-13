@@ -166,7 +166,7 @@ export default function PolitiqueConfidentialite() {
             données (<span className="font-semibold">art. 28 du RGPD</span>).
           </p>
           <h4 className="text-lg font-semibold mt-4 mb-3">
-            Identification de nos principaux sous-traitant techniques
+            Identification de nos principaux sous-traitants techniques
           </h4>
           <p>
             fin d'assurer le fonctionnement technique et l'hébergement de notre
@@ -177,7 +177,7 @@ export default function PolitiqueConfidentialite() {
           <ul className="list-disc ml-6 space-y-2">
             <li>
               <span className="font-semibold">
-                Hébergement du site (Frontend/Backend) : Vercem Inc.
+                Hébergement du site (Frontend/Backend) : Vercel Inc.
               </span>
               pour l'infrastructure d'hébergement.
             </li>
