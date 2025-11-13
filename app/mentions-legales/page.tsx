@@ -88,8 +88,7 @@ export default function MentionsLegales() {
           <div className="bg-gray-50 p-6 rounded-lg space-y-3">
             <p>
               <span className="font-semibold">Propriétaire :</span> EI
-              Facility-Web Capital social de 0€ Numéro de TVA: N/A – 180 route
-              de cobrieux 59242 Genech
+              Facility-Web – 180 route de cobrieux 59242 Genech
             </p>
             <p>
               <span className="font-semibold">Responsable publication :</span>{" "}
@@ -104,8 +103,8 @@ export default function MentionsLegales() {
               – stephane@facility-web.fr
             </p>
             <p>
-              <span className="font-semibold">Hébergeur :</span> OVH – 2 rue
-              Kellermann 59100 Roubaix ovh.com
+              <span className="font-semibold">Hébergeur :</span> Vercel Inc. –
+              340 S Lemon Ave #4133 Walnut, CA 91789, USA - vercel.com
             </p>
             <p>
               <span className="font-semibold">
@@ -276,13 +275,12 @@ export default function MentionsLegales() {
             >
               https://www.facility-web.fr
             </a>{" "}
-            est hébergé chez un prestataire sur le territoire de l'Union
-            Européenne conformément aux dispositions du{" "}
-            <span className="font-semibold">
-              Règlement Général sur la Protection des Données (RGPD : n°
-              2016-679)
-            </span>
-            .
+            fait appel à des prestataires d'hébergement internationaux.
+            Facility-Web s'engage à prendre toutes les mesures appropriées pour
+            garantir que ces prestataires respectent les exigences du Règlement
+            Général sur la Protection des Données (RGPD), notamment en encadrant
+            les transferts de données hors Union Européenne par des mécanismes
+            légaux adéquats.
           </p>
           <p>
             L'objectif est d'apporter une prestation qui assure le meilleur taux
@@ -913,6 +911,10 @@ export default function MentionsLegales() {
           <h2 className="text-2xl font-bold mt-8 mb-4">
             9. Liens hypertextes « cookies » et balises ("tags") internet
           </h2>
+
+          <h3 className="text-xl font-semibold mt-6 mb-3">
+            9.1. Liens Hypertextes
+          </h3>
           <p>
             Le site{" "}
             <a
@@ -948,213 +950,28 @@ export default function MentionsLegales() {
             que cela peut réduire ou empêcher l'accessibilité à tout ou partie
             des Services proposés par le site.
           </p>
-
-          <h3 className="text-xl font-semibold mt-6 mb-3">9.1. « COOKIES »</h3>
-          <p>
-            Un « cookie » est un petit fichier d'information envoyé sur le
-            navigateur de l'Utilisateur et enregistré au sein du terminal de
-            l'Utilisateur (ex : ordinateur, smartphone), (ci-après « Cookies »).
-            Ce fichier comprend des informations telles que le nom de domaine de
-            l'Utilisateur, le fournisseur d'accès Internet de l'Utilisateur, le
-            système d'exploitation de l'Utilisateur, ainsi que la date et
-            l'heure d'accès. Les Cookies ne risquent en aucun cas d'endommager
-            le terminal de l'Utilisateur.
-          </p>
-          <p>
-            <a
-              href="https://www.facility-web.fr"
-              className="text-blue-600 hover:underline"
-            >
-              https://www.facility-web.fr
-            </a>{" "}
-            est susceptible de traiter les informations de l'Utilisateur
-            concernant sa visite du Site, telles que les pages consultées, les
-            recherches effectuées. Ces informations permettent à{" "}
-            <a
-              href="https://www.facility-web.fr"
-              className="text-blue-600 hover:underline"
-            >
-              https://www.facility-web.fr
-            </a>{" "}
-            d'améliorer le contenu du Site, de la navigation de l'Utilisateur.
-          </p>
-          <p>
-            Les Cookies facilitant la navigation et/ou la fourniture des
-            services proposés par le Site, l'Utilisateur peut configurer son
-            navigateur pour qu'il lui permette de décider s'il souhaite ou non
-            les accepter de manière à ce que des Cookies soient enregistrés dans
-            le terminal ou, au contraire, qu'ils soient rejetés, soit
-            systématiquement, soit selon leur émetteur. L'Utilisateur peut
-            également configurer son logiciel de navigation de manière à ce que
-            l'acceptation ou le refus des Cookies lui soient proposés
-            ponctuellement, avant qu'un Cookie soit susceptible d'être
-            enregistré dans son terminal.{" "}
-            <a
-              href="https://www.facility-web.fr"
-              className="text-blue-600 hover:underline"
-            >
-              https://www.facility-web.fr
-            </a>{" "}
-            informe l'Utilisateur que, dans ce cas, il se peut que les
-            fonctionnalités de son logiciel de navigation ne soient pas toutes
-            disponibles.
-          </p>
-          <p>
-            Si l'Utilisateur refuse l'enregistrement de Cookies dans son
-            terminal ou son navigateur, ou si l'Utilisateur supprime ceux qui y
-            sont enregistrés, l'Utilisateur est informé que sa navigation et son
-            expérience sur le Site peuvent être limitées. Cela pourrait
-            également être le cas lorsque{" "}
-            <a
-              href="https://www.facility-web.fr"
-              className="text-blue-600 hover:underline"
-            >
-              https://www.facility-web.fr
-            </a>{" "}
-            ou l'un de ses prestataires ne peut pas reconnaître, à des fins de
-            compatibilité technique, le type de navigateur utilisé par le
-            terminal, les paramètres de langue et d'affichage ou le pays depuis
-            lequel le terminal semble connecté à Internet.
-          </p>
-          <p>
-            Le cas échéant,{" "}
-            <a
-              href="https://www.facility-web.fr"
-              className="text-blue-600 hover:underline"
-            >
-              https://www.facility-web.fr
-            </a>{" "}
-            décline toute responsabilité pour les conséquences liées au
-            fonctionnement dégradé du Site et des services éventuellement
-            proposés par{" "}
-            <a
-              href="https://www.facility-web.fr"
-              className="text-blue-600 hover:underline"
-            >
-              https://www.facility-web.fr
-            </a>
-            , résultant (i) du refus de Cookies par l'Utilisateur (ii) de
-            l'impossibilité pour{" "}
-            <a
-              href="https://www.facility-web.fr"
-              className="text-blue-600 hover:underline"
-            >
-              https://www.facility-web.fr
-            </a>{" "}
-            d'enregistrer ou de consulter les Cookies nécessaires à leur
-            fonctionnement du fait du choix de l'Utilisateur. Pour la gestion
-            des Cookies et des choix de l'Utilisateur, la configuration de
-            chaque navigateur est différente. Elle est décrite dans le menu
-            d'aide du navigateur, qui permettra de savoir de quelle manière
-            l'Utilisateur peut modifier ses souhaits en matière de Cookies.
-          </p>
-          <p>
-            À tout moment, l'Utilisateur peut faire le choix d'exprimer et de
-            modifier ses souhaits en matière de Cookies.{" "}
-            <a
-              href="https://www.facility-web.fr"
-              className="text-blue-600 hover:underline"
-            >
-              https://www.facility-web.fr
-            </a>{" "}
-            pourra en outre faire appel aux services de prestataires externes
-            pour l'aider à recueillir et traiter les informations décrites dans
-            cette section.
-          </p>
-          <p>
-            Enfin, en cliquant sur les icônes dédiées aux réseaux sociaux
-            Twitter, Facebook, Linkedin et Google Plus figurant sur le Site de{" "}
-            <a
-              href="https://www.facility-web.fr"
-              className="text-blue-600 hover:underline"
-            >
-              https://www.facility-web.fr
-            </a>{" "}
-            ou dans son application mobile et si l'Utilisateur a accepté le
-            dépôt de cookies en poursuivant sa navigation sur le Site Internet
-            ou l'application mobile de{" "}
-            <a
-              href="https://www.facility-web.fr"
-              className="text-blue-600 hover:underline"
-            >
-              https://www.facility-web.fr
-            </a>
-            , Twitter, Facebook, Linkedin et Google Plus peuvent également
-            déposer des cookies sur vos terminaux (ordinateur, tablette,
-            téléphone portable).
-          </p>
-          <p>
-            Ces types de cookies ne sont déposés sur vos terminaux qu'à
-            condition que vous y consentiez, en continuant votre navigation sur
-            le Site Internet ou l'application mobile de{" "}
-            <a
-              href="https://www.facility-web.fr"
-              className="text-blue-600 hover:underline"
-            >
-              https://www.facility-web.fr
-            </a>
-            . À tout moment, l'Utilisateur peut néanmoins revenir sur son
-            consentement à ce que{" "}
-            <a
-              href="https://www.facility-web.fr"
-              className="text-blue-600 hover:underline"
-            >
-              https://www.facility-web.fr
-            </a>{" "}
-            dépose ce type de cookies.
-          </p>
-
           <h3 className="text-xl font-semibold mt-6 mb-3">
-            9.2. BALISES ("TAGS") INTERNET
+            9.2. Cookies et Traceurs
           </h3>
           <p>
-            <a
-              href="https://www.facility-web.fr"
-              className="text-blue-600 hover:underline"
-            >
-              https://www.facility-web.fr
-            </a>{" "}
-            peut employer occasionnellement des balises Internet (également
-            appelées « tags », ou balises d'action, GIF à un pixel, GIF
-            transparents, GIF invisibles et GIF un à un) et les déployer par
-            l'intermédiaire d'un partenaire spécialiste d'analyses Web
-            susceptible de se trouver (et donc de stocker les informations
-            correspondantes, y compris l'adresse IP de l'Utilisateur) dans un
-            pays étranger.
+            L'utilisation de cookies, de balises ("tags") Internet et de tout
+            autre traceur est détaillée dans notre Politique de Confidentialité
+            (Section "Gestion des Cookies et Traceurs"), à laquelle
+            l'utilisateur est invité à se référer pour obtenir des informations
+            complètes sur :
           </p>
-          <p>
-            Ces balises sont placées à la fois dans les publicités en ligne
-            permettant aux internautes d'accéder au Site, et sur les différentes
-            pages de celui-ci.
-          </p>
-          <p>
-            Cette technologie permet à{" "}
-            <a
-              href="https://www.facility-web.fr"
-              className="text-blue-600 hover:underline"
-            >
-              https://www.facility-web.fr
-            </a>{" "}
-            d'évaluer les réponses des visiteurs face au Site et l'efficacité de
-            ses actions (par exemple, le nombre de fois où une page est ouverte
-            et les informations consultées), ainsi que l'utilisation de ce Site
-            par l'Utilisateur.
-          </p>
-          <p>
-            Le prestataire externe pourra éventuellement recueillir des
-            informations sur les visiteurs du Site et d'autres sites Internet
-            grâce à ces balises, constituer des rapports sur l'activité du Site
-            à l'attention de{" "}
-            <a
-              href="https://www.facility-web.fr"
-              className="text-blue-600 hover:underline"
-            >
-              https://www.facility-web.fr
-            </a>
-            , et fournir d'autres services relatifs à l'utilisation de celui-ci
-            et d'Internet.
-          </p>
-
+          <ul className="list-disc ml-6 space-y-2">
+            <li>
+              La nature et la finalité des traceurs utilisés (y compris Google
+              Analytics).
+            </li>
+            <li>La base légale de leur utilisation (votre consentement).</li>
+            <li>
+              Les modalités d'acceptation, de refus et de retrait de votre
+              consentement à tout moment, notamment via le bandeau de gestion
+              des cookies (CMP) de notre site.
+            </li>
+          </ul>
           <h2 className="text-2xl font-bold mt-8 mb-4">
             10. Droit applicable et attribution de juridiction
           </h2>
