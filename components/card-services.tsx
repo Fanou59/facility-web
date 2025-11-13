@@ -30,7 +30,12 @@ export default function CardServices({
         <CardTitle>{title}</CardTitle>
       </CardHeader>
       <CardContent className="pb-10 md:pb-0">
-        <p className="text-gray-600 text-sm">{resume}</p>
+        {resume && (
+          <p
+            className="text-gray-600 text-sm"
+            dangerouslySetInnerHTML={{ __html: resume }}
+          />
+        )}
       </CardContent>
       <button className="absolute bottom-2 right-2 w-6 h-6 bg-orange-500 hover:bg-orange-600 text-white rounded-full flex items-center justify-center text-sm font-bold transition-colors md:hidden">
         +

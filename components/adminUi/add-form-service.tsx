@@ -7,6 +7,7 @@ import { useQueryClient } from "@tanstack/react-query";
 import { useForm } from "react-hook-form";
 import { toast } from "sonner";
 import { z } from "zod";
+import { TiptapEditor } from "../tiptapeditor";
 import { Button } from "../ui/button";
 import {
   Form,
@@ -17,8 +18,6 @@ import {
   FormMessage,
 } from "../ui/form";
 import { Input } from "../ui/input";
-import { Textarea } from "../ui/textarea";
-import { TiptapEditor } from "../tiptapeditor";
 
 interface AddFormServiceProps {
   initialData?: Partial<z.infer<typeof addServiceSchema>>;
@@ -138,11 +137,17 @@ export default function AddFormService({
               <FormItem>
                 <FormLabel>Résumé du service</FormLabel>
                 <FormControl>
-                  <Textarea
+                  <TiptapEditor
+                    value={field.value}
+                    onChange={field.onChange}
+                    placeholder="Résumez le service"
+                    className="min-h-[200px]"
+                  />
+                  {/* <Textarea
                     placeholder="Résumé le service"
                     {...field}
                     className="min-h-[150px]"
-                  />
+                  /> */}
                 </FormControl>
                 <FormMessage />
               </FormItem>
