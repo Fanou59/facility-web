@@ -909,7 +909,7 @@ export default function MentionsLegales() {
           </p>
 
           <h2 className="text-2xl font-bold mt-8 mb-4">
-            9. Liens hypertextes « cookies » et balises ("tags") internet
+            9. Liens Hypertextes et Politique relative aux Cookies
           </h2>
 
           <h3 className="text-xl font-semibold mt-6 mb-3">
