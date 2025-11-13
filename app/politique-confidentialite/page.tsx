@@ -197,7 +197,7 @@ export default function PolitiqueConfidentialite() {
             Analyse de trafic :
           </h3>
           <p>
-            <span className="font-bold">Nature du traitement : </span>Nous
+            <span className="font-semibold">Nature du traitement : </span>Nous
             utilisons les services de Google Analytics pour mesurer l'audience
             de notre site, analyser le comportement de navigation des
             utilisateurs et améliorer nos services. Ce service implique
@@ -205,25 +205,26 @@ export default function PolitiqueConfidentialite() {
           </p>
 
           <p>
-            <span className="font-bold">Données Concernées : </span>Ces outils
-            peuvent collecter des informations telles que votre adresse IP
-            anonymisée, les pages consultées, la durée de la visite, et le type
-            de dispositif utilisé.
+            <span className="font-semibold">Données Concernées : </span>Ces
+            outils peuvent collecter des informations telles que votre adresse
+            IP anonymisée, les pages consultées, la durée de la visite, et le
+            type de dispositif utilisé.
           </p>
           <p>
-            <span className="font-bold">Base Légale : </span>Ce traitement est
-            strictement fondé sur votre consentement exprès (Article 6.1.a du
-            RGPD).
+            <span className="font-semibold">Base Légale : </span>Ce traitement
+            est strictement fondé sur votre consentement exprès (Article 6.1.a
+            du RGPD).
           </p>
           <p>
-            <span className="font-bold">Votre consentement : </span>Conformément
-            aux directives en vigueur, le dépôt de ces traceurs sur votre
-            terminal n'est réalisé qu'après avoir recueilli votre consentement
-            via le bandeau de gestion des cookies (Consent Management Platform -
-            CMP) qui s'affiche lors de votre première visite.
+            <span className="font-semibold">Votre consentement : </span>
+            Conformément aux directives en vigueur, le dépôt de ces traceurs sur
+            votre terminal n'est réalisé qu'après avoir recueilli votre
+            consentement via le bandeau de gestion des cookies (Consent
+            Management Platform - CMP) qui s'affiche lors de votre première
+            visite.
           </p>
           <p>
-            <span className="font-bold">Transfert de données : </span>
+            <span className="font-semibold">Transfert de données : </span>
             L'utilisation de Google Analytics peut entraîner le transfert de vos
             données vers Google aux États-Unis. Ces transferts sont encadrés par
             des mécanismes légaux appropriés, tels que les Clauses
@@ -231,7 +232,7 @@ export default function PolitiqueConfidentialite() {
             niveau de protection suffisant pour vos données.
           </p>
           <p>
-            <span className="font-bold">
+            <span className="font-semibold">
               Gestion et Retrait du Consentement :{" "}
             </span>
             Vous avez le droit de retirer votre consentement à tout moment et
