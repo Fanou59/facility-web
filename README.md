@@ -12,8 +12,11 @@ Facility-Web est une plateforme web personnelle dédiée au marketing stratégiq
 - **👤 Authentification** : Système d'auth sécurisé avec Better Auth
 - **📊 Interface d'administration** : Gestion complète des services et expériences
 - **📝 Gestion de contenu** : CRUD complet pour les services et expériences professionnelles
+- **✏️ Éditeur riche** : TipTap pour l'édition de contenu avec formatage
 - **📧 Formulaire de contact** : Envoi d'emails avec Nodemailer
 - **🗓️ Prise de rendez-vous** : Intégration Zcal pour la planification
+- **☁️ Stockage d'images** : Upload et gestion d'images via Cloudinary
+- **🍪 Gestion des cookies** : Conformité RGPD avec Axeptio
 - **📱 Design responsive** : Interface adaptée à tous les écrans
 - **🎨 UI moderne** : Components Shadcn/ui avec animations
 
@@ -21,11 +24,13 @@ Facility-Web est une plateforme web personnelle dédiée au marketing stratégiq
 
 ### Frontend
 
-- **Next.js 15** - Framework React avec App Router
+- **Next.js 15.5** - Framework React avec App Router et Turbopack
+- **React 19.1** - Bibliothèque UI avec dernières fonctionnalités
 - **TypeScript** - Typage statique
-- **Tailwind CSS** - Framework CSS utilitaire
+- **Tailwind CSS 4** - Framework CSS utilitaire
 - **Shadcn/ui** - Bibliothèque de composants
 - **Radix UI** - Composants accessibles
+- **TipTap** - Éditeur de texte riche
 - **Lucide React** - Icônes
 
 ### Backend & Base de données
@@ -34,6 +39,7 @@ Facility-Web est une plateforme web personnelle dédiée au marketing stratégiq
 - **PostgreSQL** - Base de données
 - **Better Auth** - Authentification et autorisation
 - **Nodemailer** - Envoi d'emails
+- **Cloudinary** - Stockage et gestion d'images
 
 ### Outils & Validation
 
@@ -41,6 +47,7 @@ Facility-Web est une plateforme web personnelle dédiée au marketing stratégiq
 - **Zod** - Validation de schémas
 - **TanStack Query** - Gestion d'état et cache
 - **Sonner** - Notifications toast
+- **Axeptio** - Gestion des cookies et conformité RGPD
 
 ## 📁 Structure du projet
 
@@ -49,16 +56,29 @@ facility-web/
 ├── app/                    # App Router (Next.js 15)
 │   ├── actions/           # Server actions
 │   ├── api/              # Routes API
-│   ├── (pages)/          # Pages de l'application
+│   ├── admin/            # Interface d'administration
+│   ├── contact/          # Page contact
+│   ├── login/            # Page connexion
+│   ├── register/         # Page inscription
+│   ├── reset-password/   # Réinitialisation mot de passe
+│   ├── mes-services/     # Page services
+│   ├── qui-suis-je/      # Page à propos
+│   ├── mentions-legales/ # Mentions légales
+│   ├── politique-confidentialite/  # Politique confidentialité
+│   ├── politique-cookie/ # Politique cookies
 │   └── globals.css       # Styles globaux
 ├── components/            # Composants React
-│   ├── ui/               # Composants UI réutilisables
+│   ├── ui/               # Composants UI réutilisables (shadcn/ui)
 │   ├── adminUi/          # Interface d'administration
-│   └── providers/        # Providers React
+│   └── providers/        # Providers React (TanStack Query)
 ├── lib/                  # Utilitaires et configurations
+│   ├── auth.ts           # Configuration Better Auth
+│   ├── prisma.ts         # Client Prisma
+│   ├── uploadToCloudinary.ts  # Upload images
+│   └── utils.ts          # Fonctions utilitaires
 ├── schemas/              # Schémas de validation Zod
-├── prisma/               # Configuration Prisma
-├── data/                 # Données statiques
+├── prisma/               # Configuration Prisma et schéma DB
+├── hooks/                # Custom React hooks
 └── public/               # Fichiers statiques
 ```
 
@@ -87,17 +107,22 @@ Remplissez les variables suivantes dans `.env` :
 
 ```env
 # Base de données
-DATABASE_URL="postgresql://..."
+DATABASE_URL="postgresql://user:password@localhost:5432/facility_web"
 
 # Authentication
-NEXT_PUBLIC_BETTER_AUTH_URL="http://localhost:3000"
-BETTER_AUTH_SECRET="votre-secret"
+BETTER_AUTH_SECRET="votre-secret-aleatoire"
+BETTER_AUTH_URL="http://localhost:3000"
 
 # Email (SMTP)
 SMTP_HOST="smtp.example.com"
 SMTP_PORT="465"
 SMTP_USER="votre-email@example.com"
 SMTP_PASS="votre-mot-de-passe"
+
+# Cloudinary
+CLOUDINARY_CLOUD_NAME="votre-cloud-name"
+CLOUDINARY_API_KEY="votre-api-key"
+CLOUDINARY_API_SECRET="votre-api-secret"
 ```
 
 4. **Configurer la base de données**
@@ -118,7 +143,7 @@ L'application sera accessible sur [http://localhost:3000](http://localhost:3000)
 ## 📝 Scripts disponibles
 
 ```bash
-pnpm dev          # Démarrer le serveur de développement
+pnpm dev          # Démarrer le serveur de développement (avec Turbopack)
 pnpm build        # Construire l'application pour la production
 pnpm start        # Démarrer le serveur de production
 pnpm postinstall  # Générer le client Prisma
@@ -129,9 +154,10 @@ pnpm postinstall  # Générer le client Prisma
 Le projet utilise Prisma avec PostgreSQL. Les modèles principaux :
 
 - **User** : Utilisateurs et authentification
-- **Services** : Services proposés
-- **CV** : Expériences professionnelles
-- **Session/Account** : Gestion des sessions
+- **Services** : Services proposés avec images et descriptions
+- **CV** : Expériences professionnelles (timeline)
+- **Session/Account** : Gestion des sessions Better Auth
+- **Verification** : Tokens de vérification email
 
 ## 🔐 Authentification
 
@@ -153,10 +179,19 @@ L'authentification est gérée par Better Auth avec :
 
 ### Interface d'administration
 
-- Gestion des services (CRUD)
+- Gestion des services (CRUD) avec upload d'images
 - Gestion des expériences professionnelles
+- Éditeur de texte riche avec TipTap
 - Mise à jour du profil utilisateur
 - Interface avec sections collapsibles
+
+## ☁️ Cloudinary
+
+Le projet utilise Cloudinary pour le stockage et la gestion des images. Les images des services sont uploadées dans le dossier `facility-services` et optimisées automatiquement.
+
+## 🍪 Conformité RGPD
+
+Le projet intègre Axeptio pour la gestion des cookies et la conformité RGPD, avec support de Google Consent Mode v2.
 
 ## 📧 Configuration Email
 
