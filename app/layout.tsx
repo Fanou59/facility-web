@@ -2,6 +2,7 @@ import Footer from "@/components/footer";
 import Header from "@/components/header";
 import ReactQueryProvider from "@/components/providers/react-query-provider";
 import ScrollToTop from "@/components/scroll-to-top";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import type { Metadata } from "next";
 import { Inter, Montserrat } from "next/font/google";
 import Script from "next/script";
@@ -62,6 +63,7 @@ export default function RootLayout({
             `,
           }}
         />
+        <SpeedInsights />
         <ReactQueryProvider>
           <Toaster />
           <div className="flex flex-col justify-between min-h-screen">
