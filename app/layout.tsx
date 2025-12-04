@@ -33,12 +33,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="fr">
+      <link rel="preconnect" href="//static.axept.io" />
       <body
         className={`${montserrat.variable} ${inter.variable} antialiased bg-slate-50 text-slate-800`}
       >
         <Script
           id="axeptio-config"
-          strategy="beforeInteractive"
+          strategy="afterInteractive"
           dangerouslySetInnerHTML={{
             __html: `
               window.axeptioSettings = {
