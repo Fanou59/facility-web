@@ -2,11 +2,11 @@
 import { deleteUserAction } from "@/app/actions/deleteUser";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { useState } from "react";
-import DeleteButton from "../delete-button";
-import EditButton from "../edit-button";
-import SpinnerPerso from "../ui/spinner-perso";
+import DeleteButton from "../../delete-button";
+import EditButton from "../../edit-button";
+import ChangePasswordForm from "../../form-change-password";
+import SpinnerPerso from "../../ui/spinner-perso";
 import UpdateUserForm from "./update-user-form";
-import ChangePasswordForm from "../form-change-password";
 
 type User = {
   id: string;

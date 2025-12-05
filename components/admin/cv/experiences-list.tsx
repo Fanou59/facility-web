@@ -3,9 +3,9 @@ import { deleteExperienceAction } from "@/app/actions/deleteExperienceCV";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
-import DeleteButton from "../delete-button";
-import EditButton from "../edit-button";
-import SpinnerPerso from "../ui/spinner-perso";
+import DeleteButton from "../../delete-button";
+import EditButton from "../../edit-button";
+import SpinnerPerso from "../../ui/spinner-perso";
 import AddExperienceCv from "./add-experience-cv";
 
 type Experience = {

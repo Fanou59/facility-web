@@ -14,8 +14,8 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "sonner";
 import z from "zod";
-import { Button } from "../ui/button";
-import { Calendar } from "../ui/calendar";
+import { Button } from "../../ui/button";
+import { Calendar } from "../../ui/calendar";
 import {
   Form,
   FormControl,
@@ -23,9 +23,9 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from "../ui/form";
-import { Input } from "../ui/input";
-import { Textarea } from "../ui/textarea";
+} from "../../ui/form";
+import { Input } from "../../ui/input";
+import { Textarea } from "../../ui/textarea";
 
 interface AddExperienceCvProps {
   initialData?: Partial<z.infer<typeof cvSchema>>;

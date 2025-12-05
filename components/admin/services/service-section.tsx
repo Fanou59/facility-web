@@ -1,5 +1,5 @@
-import AddFormService from "./add-form-service";
-import CollapsibleSection from "./collapsible-section";
+import CollapsibleSection from "@/components/admin/collapsible-section";
+import AddFormService from "@/components/admin/services/add-form-service";
 
 export default function ServiceSection() {
   return (

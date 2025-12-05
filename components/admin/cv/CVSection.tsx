@@ -1,5 +1,5 @@
-import AddExperienceCv from "./add-experience-cv";
-import CollapsibleSection from "./collapsible-section";
+import CollapsibleSection from "@/components/admin/collapsible-section";
+import AddExperienceCv from "@/components/admin/cv/add-experience-cv";
 
 export default function CVSection() {
   return (

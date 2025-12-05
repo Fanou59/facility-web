@@ -4,9 +4,9 @@ import { useQuery, useQueryClient } from "@tanstack/react-query";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
-import DeleteButton from "../delete-button";
-import EditButton from "../edit-button";
-import SpinnerPerso from "../ui/spinner-perso";
+import DeleteButton from "../../delete-button";
+import EditButton from "../../edit-button";
+import SpinnerPerso from "../../ui/spinner-perso";
 import AddFormService from "./add-form-service";
 
 type Service = {
