@@ -5,6 +5,11 @@ import nodemailer from "nodemailer";
 
 const prisma = new PrismaClient();
 
+// Liste des adresses e-mail autorisées pour la réinitialisation du mot de passe
+const allowedEmailsForReset = process.env.ADMIN_EMAILS
+  ? process.env.ADMIN_EMAILS.split(",")
+  : [];
+
 interface SendResetPasswordEmailParams {
   to: string;
   url: string;
@@ -60,6 +65,15 @@ export const auth = betterAuth({
   emailAndPassword: {
     enabled: true,
     sendResetPassword: async ({ user, url }) => {
+      // Vérifier si l'email de l'utilisateur est dans la liste autorisée
+      if (!allowedEmailsForReset.includes(user.email)) {
+        // Ne rien faire si l'email n'est pas autorisé.
+        // Cela évite de révéler si un utilisateur existe ou non.
+        console.log(
+          `Tentative de réinitialisation de mot de passe bloquée pour : ${user.email}`
+        );
+        return;
+      }
       await sendResetPasswordEmail({ to: user.email, url });
     },
   },
