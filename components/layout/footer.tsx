@@ -6,21 +6,23 @@ export default function Footer() {
     <PageContainer>
       <footer className="bg-gray-800 text-gray-300 py-6 ">
         <div className="container mx-auto px-6 text-center">
-          <div className="flex gap-2 justify-center">
+          <div className="flex flex-col sm:flex-row gap-2 justify-center items-center">
             <Link href="/mentions-legales">Mentions légales</Link>
-            <span className="text-gray-500">|</span>
+            <span className="text-gray-500 hidden sm:inline">|</span>
             <Link href="/politique-confidentialite">
               Politique de confidentialité
             </Link>
-            <span className="text-gray-500">|</span>
+            <span className="text-gray-500 hidden sm:inline">|</span>
 
             <Link href="/politique-cookie">Politique de cookies</Link>
-            <span className="text-gray-500">|</span>
+            {/* <span className="text-gray-500 hidden sm:inline">|</span>
             <a href="javascript:openAxeptioCookies()">
               Cliquez-ici pour modifier vos préférences en matière de cookies
-            </a>
+            </a> */}
           </div>
-          <p>&copy; 2025 Product-axis. Tous droits réservés.</p>
+          <p className="mt-4">
+            &copy; 2025 Product-axis. Tous droits réservés.
+          </p>
         </div>
       </footer>
     </PageContainer>
