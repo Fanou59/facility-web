@@ -15,6 +15,10 @@ export default function Footer() {
             <span className="text-gray-500">|</span>
 
             <Link href="/politique-cookie">Politique de cookies</Link>
+            <span className="text-gray-500">|</span>
+            <a href="javascript:openAxeptioCookies()">
+              Cliquez-ici pour modifier vos préférences en matière de cookies
+            </a>
           </div>
           <p>&copy; 2025 Product-axis. Tous droits réservés.</p>
         </div>
