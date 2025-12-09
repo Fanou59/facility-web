@@ -9,7 +9,7 @@ export default function PolitiqueConfidentialite() {
           <p>
             Cette politique de confidentialité a pour objectif de vous expliquer
             pourquoi nous recueillons vos données et comment nous nous engageons
-            à les protéger. Facility-web s'engage en faveur de la protection de
+            à les protéger. Product-axis s'engage en faveur de la protection de
             vos données personnelles et de votre vie privée. À ce titre, et en
             application du Règlement Général de Protection des Données (ci-après
             dénommé <span className="font-semibold">"RGPD"</span>), nous vous
@@ -131,7 +131,7 @@ export default function PolitiqueConfidentialite() {
           </h2>
           <p>
             Vos données personnelles sont destinées à{" "}
-            <span className="font-semibold">Facility-web</span>.
+            <span className="font-semibold">Product-axis</span>.
           </p>
 
           <h3 className="text-xl font-semibold mt-6 mb-3">
@@ -252,7 +252,7 @@ export default function PolitiqueConfidentialite() {
           </p>
 
           <h2 className="text-2xl font-bold mt-8 mb-4">
-            Comment Facility-web préserve la sécurité de vos données ?
+            Comment Product-axis préserve la sécurité de vos données ?
           </h2>
           <p>
             Nous mettons en place toutes les mesures organisationnelles et
@@ -410,7 +410,7 @@ export default function PolitiqueConfidentialite() {
           </p>
 
           <div className="bg-gray-50 p-4 rounded-lg">
-            <p className="font-semibold">Facility-web EI</p>
+            <p className="font-semibold">Product-axis EI</p>
             <p>
               Immatriculée au Registre du commerce et des sociétés de Lille sous
               le numéro SIRET :{" "}
@@ -443,7 +443,7 @@ export default function PolitiqueConfidentialite() {
             libre qui peut être téléchargé sur le site{" "}
             <a
               href="https://donnees.net"
-              className="text-blue-600 hover:underline"
+              className="text-orange-500 hover:text-orange-600 underline"
               target="_blank"
               rel="noopener noreferrer"
             >

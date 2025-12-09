@@ -124,7 +124,7 @@ export default function PolitiqueCookie() {
                     axeptio_all_vendors
                   </td>
                   <td className="px-4 py-3 text-sm text-gray-900">
-                    www.facility-web.fr
+                    www.product-axis.fr
                   </td>
                   <td className="px-4 py-3 text-sm text-gray-900">
                     Première partie
@@ -143,7 +143,7 @@ export default function PolitiqueCookie() {
                     axeptio_cookies
                   </td>
                   <td className="px-4 py-3 text-sm text-gray-900">
-                    www.facility-web.fr
+                    www.product-axis.fr
                   </td>
                   <td className="px-4 py-3 text-sm text-gray-900">
                     Première partie
@@ -165,7 +165,7 @@ export default function PolitiqueCookie() {
                     axeptio_authorized_vendors
                   </td>
                   <td className="px-4 py-3 text-sm text-gray-900">
-                    www.facility-web.fr
+                    www.product-axis.fr
                   </td>
                   <td className="px-4 py-3 text-sm text-gray-900">
                     Première partie
@@ -226,7 +226,7 @@ export default function PolitiqueCookie() {
                     _ga
                   </td>
                   <td className="px-4 py-3 text-sm text-gray-900">
-                    www.facility-web.fr
+                    www.product-axis.fr
                   </td>
                   <td className="px-4 py-3 text-sm text-gray-900">
                     Tiers (Google)
@@ -243,7 +243,7 @@ export default function PolitiqueCookie() {
                     _gid
                   </td>
                   <td className="px-4 py-3 text-sm text-gray-900">
-                    www.facility-web.fr
+                    www.product-axis.fr
                   </td>
                   <td className="px-4 py-3 text-sm text-gray-900">
                     Tiers (Google)
@@ -260,7 +260,7 @@ export default function PolitiqueCookie() {
                     _gat
                   </td>
                   <td className="px-4 py-3 text-sm text-gray-900">
-                    www.facility-web.fr
+                    www.product-axis.fr
                   </td>
                   <td className="px-4 py-3 text-sm text-gray-900">
                     Tiers (Google)

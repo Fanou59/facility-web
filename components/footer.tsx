@@ -16,7 +16,7 @@ export default function Footer() {
 
             <Link href="/politique-cookie">Politique de cookies</Link>
           </div>
-          <p>&copy; 2025 Facility-web. Tous droits réservés.</p>
+          <p>&copy; 2025 Product-axis. Tous droits réservés.</p>
         </div>
       </footer>
     </PageContainer>

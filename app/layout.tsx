@@ -21,7 +21,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Facility-web | Conseil en Stratégie Produit & Go-to-Market (PMM)",
+  title: "Product-axis | Conseil en Stratégie Produit & Go-to-Market (PMM)",
 
   description:
     "Expertise en Stratégie Produit, Positionnement (PMM) et exécution Go-to-Market. Alignez votre offre sur le marché et accélérez votre croissance mesurable.",
