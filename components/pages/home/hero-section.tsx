@@ -1,4 +1,4 @@
-import ContactButton from "./contact-button";
+import ContactButton from "@/components/ui/buttons/contact-button";
 
 export default function HeroSection() {
   return (

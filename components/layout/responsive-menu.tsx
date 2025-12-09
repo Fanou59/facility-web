@@ -1,15 +1,15 @@
 "use client";
-import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
-import { Menu } from "lucide-react";
-import Link from "next/link";
-import { useState } from "react";
 import {
   Sheet,
   SheetContent,
   SheetDescription,
   SheetTitle,
   SheetTrigger,
-} from "./ui/sheet";
+} from "@/components/ui/sheet";
+import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
+import { Menu } from "lucide-react";
+import Link from "next/link";
+import { useState } from "react";
 
 export default function ResponsiveMenu() {
   const [open, setOpen] = useState(false);

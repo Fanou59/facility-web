@@ -1,6 +1,5 @@
-import React from "react";
-import ContactButton from "./contact-button";
-import Section from "./section";
+import Section from "@/components/shared/section";
+import ContactButton from "@/components/ui/buttons/contact-button";
 
 export default function ContactSection() {
   return (

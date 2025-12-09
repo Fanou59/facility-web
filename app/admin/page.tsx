@@ -3,7 +3,7 @@ import ListeCVSection from "@/components/admin/cv/liste-cv-section";
 import ListeServiceSection from "@/components/admin/services/liste-service-section";
 import ServiceSection from "@/components/admin/services/service-section";
 import UserSection from "@/components/admin/users/user-section";
-import PageContainer from "@/components/page-container";
+import PageContainer from "@/components/layout/page-container";
 import { Separator } from "@/components/ui/separator";
 import { auth } from "@/lib/auth";
 import { headers } from "next/headers";

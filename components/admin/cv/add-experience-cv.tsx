@@ -1,6 +1,10 @@
 "use client";
 import { addExperienceCVAction } from "@/app/actions/addExperienceCV";
 import { updateExperienceAction } from "@/app/actions/updateExperience";
+import { Button } from "@/components/ui/button";
+import { Calendar } from "@/components/ui/calendar";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
 import { cvSchema } from "@/schemas/cv";
 import { zodResolver } from "@hookform/resolvers/zod";
 import {
@@ -14,8 +18,6 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "sonner";
 import z from "zod";
-import { Button } from "../../ui/button";
-import { Calendar } from "../../ui/calendar";
 import {
   Form,
   FormControl,
@@ -24,8 +26,6 @@ import {
   FormLabel,
   FormMessage,
 } from "../../ui/form";
-import { Input } from "../../ui/input";
-import { Textarea } from "../../ui/textarea";
 
 interface AddExperienceCvProps {
   initialData?: Partial<z.infer<typeof cvSchema>>;

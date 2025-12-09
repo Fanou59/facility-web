@@ -1,10 +1,10 @@
 "use client";
 import { deleteUserAction } from "@/app/actions/deleteUser";
+import ChangePasswordForm from "@/components/admin/users/form-change-password";
+import EditButton from "@/components/ui/buttons/edit-button";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { useState } from "react";
-import DeleteButton from "../../delete-button";
-import EditButton from "../../edit-button";
-import ChangePasswordForm from "../../form-change-password";
+import DeleteButton from "../../ui/buttons/delete-button";
 import SpinnerPerso from "../../ui/spinner-perso";
 import UpdateUserForm from "./update-user-form";
 

@@ -1,7 +1,7 @@
 "use client";
+import { Button } from "@/components/ui/button";
 import { ChevronDown, ChevronUp } from "lucide-react";
 import { useState } from "react";
-import { Button } from "../ui/button";
 
 type CollapsibleSectionProps = {
   children: React.ReactNode;

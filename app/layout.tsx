@@ -1,7 +1,7 @@
-import Footer from "@/components/footer";
-import Header from "@/components/header";
+import Footer from "@/components/layout/footer";
+import Header from "@/components/layout/header";
 import ReactQueryProvider from "@/components/providers/react-query-provider";
-import ScrollToTop from "@/components/scroll-to-top";
+import ScrollToTop from "@/components/shared/scroll-to-top";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import type { Metadata } from "next";

@@ -1,6 +1,6 @@
 import Image from "next/image";
+import { Card, CardContent, CardHeader, CardTitle } from "../ui/card";
 import SyntheseService from "./synthese-service";
-import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
 
 type CardDescriptionServicesProps = {
   title: string;

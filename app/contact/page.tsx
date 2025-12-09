@@ -1,7 +1,7 @@
 "use client";
-import { ContactForm } from "@/components/contactForm";
-import PageContainer from "@/components/page-container";
-import Section from "@/components/section";
+import PageContainer from "@/components/layout/page-container";
+import { ContactForm } from "@/components/pages/contact/contactForm";
+import Section from "@/components/shared/section";
 
 export default function Contact() {
   return (

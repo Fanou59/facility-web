@@ -1,9 +1,9 @@
+import CardServices from "@/components/shared/card-services";
+import PlusAddService from "@/components/shared/plus-add-service";
+import Section from "@/components/shared/section";
 import { auth } from "@/lib/auth";
 import { prisma } from "@/lib/connect";
 import { headers } from "next/headers";
-import CardServices from "./card-services";
-import PlusAddService from "./plus-add-service";
-import Section from "./section";
 
 type Service = {
   id: number;

@@ -1,12 +1,12 @@
 "use client";
 import { deleteExperienceAction } from "@/app/actions/deleteExperienceCV";
+import AddExperienceCv from "@/components/admin/cv/add-experience-cv";
+import DeleteButton from "@/components/ui/buttons/delete-button";
+import EditButton from "@/components/ui/buttons/edit-button";
+import SpinnerPerso from "@/components/ui/spinner-perso";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
-import DeleteButton from "../../delete-button";
-import EditButton from "../../edit-button";
-import SpinnerPerso from "../../ui/spinner-perso";
-import AddExperienceCv from "./add-experience-cv";
 
 type Experience = {
   id: string;

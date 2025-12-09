@@ -1,6 +1,6 @@
 "use client";
-import CollapsibleSection from "../collapsible-section";
-import UserList from "../users/user-list";
+import UserList from "@/components/admin/users/user-list";
+import CollapsibleSection from "@/components/ui/collapsible-section";
 
 export default function UserSection() {
   return (

@@ -1,14 +1,8 @@
 "use client";
 import { addServiceAction } from "@/app/actions/addServices";
 import { updateServiceAction } from "@/app/actions/updateServices";
-import { addServiceSchema } from "@/schemas/addService";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { useQueryClient } from "@tanstack/react-query";
-import { useForm } from "react-hook-form";
-import { toast } from "sonner";
-import { z } from "zod";
-import { TiptapEditor } from "../../tiptapeditor";
-import { Button } from "../../ui/button";
+import { TiptapEditor } from "@/components/shared/tiptapeditor";
+import { Button } from "@/components/ui/button";
 import {
   Form,
   FormControl,
@@ -16,8 +10,14 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from "../../ui/form";
-import { Input } from "../../ui/input";
+} from "@/components/ui/form";
+import { Input } from "@/components/ui/input";
+import { addServiceSchema } from "@/schemas/addService";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useQueryClient } from "@tanstack/react-query";
+import { useForm } from "react-hook-form";
+import { toast } from "sonner";
+import { z } from "zod";
 
 interface AddFormServiceProps {
   initialData?: Partial<z.infer<typeof addServiceSchema>>;

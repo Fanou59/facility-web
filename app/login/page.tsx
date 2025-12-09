@@ -1,7 +1,7 @@
 // filepath: /app/login/page.tsx
 "use client";
-import PageContainer from "@/components/page-container";
-import Section from "@/components/section";
+import PageContainer from "@/components/layout/page-container";
+import Section from "@/components/shared/section";
 import { Button } from "@/components/ui/button";
 import {
   Form,

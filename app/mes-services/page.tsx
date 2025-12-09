@@ -1,13 +1,13 @@
-import CardDescriptionServices from "@/components/card-description-services";
-import PageContainer from "@/components/page-container";
-import Section from "@/components/section";
+import PageContainer from "@/components/layout/page-container";
+import CardDescriptionServices from "@/components/shared/card-description-services";
+import Section from "@/components/shared/section";
 import { prisma } from "@/lib/connect";
 // import { detailServices } from "@/data/detail-service";
 
 // il faut remplacer detailService par service
 
-import ContactSection from "@/components/contact-section";
-import PlusAddService from "@/components/plus-add-service";
+import ContactSection from "@/components/pages/contact/contact-section";
+import PlusAddService from "@/components/shared/plus-add-service";
 import { auth } from "@/lib/auth";
 import { JsonValue } from "@prisma/client/runtime/library";
 import { headers } from "next/headers";

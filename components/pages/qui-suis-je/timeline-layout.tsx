@@ -1,4 +1,5 @@
 "use client";
+import { Skeleton } from "@/components/ui/skeleton";
 import {
   Timeline,
   TimelineDescription,
@@ -9,7 +10,6 @@ import {
   TimelineTitle,
 } from "@/components/ui/timeline";
 import { useQuery } from "@tanstack/react-query";
-import { Skeleton } from "./ui/skeleton";
 
 type Experience = {
   id: string;

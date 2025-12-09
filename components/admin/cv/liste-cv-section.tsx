@@ -1,4 +1,4 @@
-import CollapsibleSection from "@/components/admin/collapsible-section";
+import CollapsibleSection from "@/components/ui/collapsible-section";
 import ExperiencesList from "./experiences-list";
 
 export default function ListeCVSection() {

@@ -13,7 +13,7 @@ import {
   Redo,
   Undo,
 } from "lucide-react";
-import { Button } from "./ui/button";
+import { Button } from "../ui/button";
 
 interface TiptapEditorProps {
   value?: string;

@@ -1,7 +1,7 @@
-import PageContainer from "@/components/page-container";
-import ProfilSection from "@/components/profil-section";
-import Section from "@/components/section";
-import { TimelineLayout } from "@/components/timeline-layout";
+import PageContainer from "@/components/layout/page-container";
+import ProfilSection from "@/components/pages/qui-suis-je/profil-section";
+import { TimelineLayout } from "@/components/pages/qui-suis-je/timeline-layout";
+import Section from "@/components/shared/section";
 import { Badge } from "@/components/ui/badge";
 
 export default async function QuiSuisJe() {

@@ -1,4 +1,4 @@
-import CollapsibleSection from "@/components/admin/collapsible-section";
+import CollapsibleSection from "@/components/ui/collapsible-section";
 import ServicesList from "./services-list";
 
 export default function ListeServiceSection() {

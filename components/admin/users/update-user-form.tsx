@@ -7,7 +7,7 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "sonner";
 import { z } from "zod";
-import { TiptapEditor } from "../../tiptapeditor";
+import { TiptapEditor } from "../../shared/tiptapeditor";
 import { Button } from "../../ui/button";
 import {
   Form,
