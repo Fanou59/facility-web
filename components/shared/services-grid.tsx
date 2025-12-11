@@ -1,6 +1,7 @@
 "use client";
 
 import { deleteServiceAction } from "@/app/actions/deleteService";
+import AddFormService from "@/components/admin/services/add-form-service";
 import { Button } from "@/components/ui/button";
 import {
   Dialog,
@@ -30,6 +31,8 @@ type Service = {
 export default function ServicesGrid({ isAdmin }: { isAdmin: boolean }) {
   const [isDeleteDialogOpen, setIsDeleteDialogOpen] = useState(false);
   const [serviceToDelete, setServiceToDelete] = useState<string | null>(null);
+  const [isEditDialogOpen, setIsEditDialogOpen] = useState(false);
+  const [serviceToEditId, setServiceToEditId] = useState<string | null>(null);
 
   const queryClient = useQueryClient();
   const { data, isLoading, error } = useQuery<Service[]>({
@@ -41,9 +44,29 @@ export default function ServicesGrid({ isAdmin }: { isAdmin: boolean }) {
     },
   });
 
+  // Query pour récupérer les détails du service à éditer
+  const {
+    data: serviceDetails,
+    isLoading: isLoadingDetails,
+    isError: isErrorDetails,
+  } = useQuery<Service>({
+    queryKey: ["service", serviceToEditId],
+    queryFn: async () => {
+      const res = await fetch(`/api/services/${serviceToEditId}`);
+      if (!res.ok) throw new Error("Erreur lors du chargement du service");
+      return res.json();
+    },
+    enabled: !!serviceToEditId, // La requête ne s'exécute que si un ID est sélectionné
+  });
+
   function handleDeleteClick(id: string) {
     setServiceToDelete(id);
     setIsDeleteDialogOpen(true);
+  }
+
+  function handleEditClick(id: string) {
+    setServiceToEditId(id);
+    setIsEditDialogOpen(true);
   }
 
   async function confirmDelete() {
@@ -61,6 +84,11 @@ export default function ServicesGrid({ isAdmin }: { isAdmin: boolean }) {
     }
   }
 
+  const handleEditSuccess = () => {
+    setIsEditDialogOpen(false);
+    setServiceToEditId(null);
+  };
+
   if (isLoading) return <SpinnerPerso />;
   if (error) return <div>Erreur: {error.message}</div>;
 
@@ -73,6 +101,8 @@ export default function ServicesGrid({ isAdmin }: { isAdmin: boolean }) {
             {...service}
             synthese={service.synthese as string[] | null}
             isAdmin={isAdmin}
+            isActiveEdit={serviceToEditId === service.id}
+            onEdit={() => handleEditClick(service.id)}
             onDelete={() => handleDeleteClick(service.id)}
           />
         ))}
@@ -101,6 +131,30 @@ export default function ServicesGrid({ isAdmin }: { isAdmin: boolean }) {
               Supprimer
             </Button>
           </DialogFooter>
+        </DialogContent>
+      </Dialog>
+
+      <Dialog open={isEditDialogOpen} onOpenChange={setIsEditDialogOpen}>
+        <DialogContent className="sm:max-w-4xl p-6 max-h-[90vh] overflow-y-auto">
+          <DialogHeader>
+            <DialogTitle className="text-2xl font-bold text-slate-900">
+              Modifier le service
+            </DialogTitle>
+          </DialogHeader>
+          <div className="mt-4">
+            {isLoadingDetails && <SpinnerPerso />}
+            {isErrorDetails && (
+              <div>Erreur lors du chargement des détails.</div>
+            )}
+            {serviceDetails && (
+              <AddFormService
+                mode="edit"
+                serviceId={serviceToEditId!}
+                initialData={serviceDetails}
+                onSuccess={handleEditSuccess}
+              />
+            )}
+          </div>
         </DialogContent>
       </Dialog>
     </>
