@@ -89,6 +89,13 @@ export default function ServicesGrid({ isAdmin }: { isAdmin: boolean }) {
     setServiceToEditId(null);
   };
 
+  const handleEditDialogClose = (open: boolean) => {
+    setIsEditDialogOpen(open);
+    if (!open) {
+      setServiceToEditId(null); // Réinitialise l'ID lorsque la modale se ferme
+    }
+  };
+
   if (isLoading) return <SpinnerPerso />;
   if (error) return <div>Erreur: {error.message}</div>;
 
@@ -134,7 +141,7 @@ export default function ServicesGrid({ isAdmin }: { isAdmin: boolean }) {
         </DialogContent>
       </Dialog>
 
-      <Dialog open={isEditDialogOpen} onOpenChange={setIsEditDialogOpen}>
+      <Dialog open={isEditDialogOpen} onOpenChange={handleEditDialogClose}>
         <DialogContent className="sm:max-w-4xl p-6 max-h-[90vh] overflow-y-auto">
           <DialogHeader>
             <DialogTitle className="text-2xl font-bold text-slate-900">

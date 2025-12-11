@@ -1,7 +1,6 @@
 import CVSection from "@/components/admin/cv/CVSection";
 import ListeCVSection from "@/components/admin/cv/liste-cv-section";
 import ListeServiceSection from "@/components/admin/services/liste-service-section";
-import ServiceSection from "@/components/admin/services/service-section";
 import UserSection from "@/components/admin/users/user-section";
 import PageContainer from "@/components/layout/page-container";
 import { Separator } from "@/components/ui/separator";
@@ -23,8 +22,8 @@ export default async function AdminPage() {
         <span>Bonjour {session.user.name}</span>
       </div>
       <UserSection />
-      <Separator className="my-4" />
-      <ServiceSection />
+      {/* <Separator className="my-4" /> */}
+      {/* <ServiceSection /> */}
       <Separator className="my-4" />
       <ListeServiceSection />
       <Separator className="my-4" />
