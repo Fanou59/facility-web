@@ -56,7 +56,7 @@ export default function AddFormService({
       formData.append("description", data.description);
       formData.append("alt", data.alt);
       formData.append("synthese", JSON.stringify(data.synthese));
-      // En mode edit, n'ajouter l'image que si une nouvelle image a été sélectionnée
+      // N'ajouter l'image que si une nouvelle image a été sélectionnée
       if (data.imageUrl && data.imageUrl instanceof File) {
         formData.append("image", data.imageUrl);
       }

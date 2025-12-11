@@ -12,10 +12,7 @@ export async function addServiceAction(formData: FormData) {
     const description = formData.get("description") as string;
     const alt = formData.get("alt") as string;
     const synthese = JSON.parse(formData.get("synthese") as string);
-    const image = formData.get("imageUrl") as File;
-
-    // Upload vers Cloudinary - retourne une URL
-    const cloudinaryUrl = await uploadToCloudinary(image);
+    const image = formData.get("image") as File;
 
     // Validation des données
     const validatedData = addServiceSchema.parse({
@@ -24,8 +21,16 @@ export async function addServiceAction(formData: FormData) {
       description,
       alt,
       synthese,
-      imageUrl: cloudinaryUrl, // C'est maintenant une URL Cloudinary
+      imageUrl: image, // On valide l'objet File
     });
+
+    // Vérification que l'image est bien présente après validation
+    if (!validatedData.imageUrl) {
+      throw new Error("L'image est requise pour la création du service.");
+    }
+
+    // Upload vers Cloudinary - retourne une URL
+    const cloudinaryUrl = await uploadToCloudinary(validatedData.imageUrl);
 
     // Création en base de données avec l'URL Cloudinary
     const newService = await prisma.services.create({
@@ -35,7 +40,7 @@ export async function addServiceAction(formData: FormData) {
         description: validatedData.description,
         alt: validatedData.alt,
         synthese: validatedData.synthese,
-        imageUrl: validatedData.imageUrl, // URL Cloudinary stockée en BDD
+        imageUrl: cloudinaryUrl, // URL Cloudinary stockée en BDD
       },
     });
 

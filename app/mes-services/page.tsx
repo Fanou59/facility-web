@@ -43,6 +43,7 @@ export default async function MesServices() {
       >
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-8">
           {detailServices.map((detailService) => (
+            // il faut ajouter l'affichage du bouton delete et/ou modifier si connection admin
             <CardDescriptionServices
               key={detailService.id}
               title={detailService.title}
