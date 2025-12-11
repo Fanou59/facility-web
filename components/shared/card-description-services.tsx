@@ -1,4 +1,5 @@
 import Image from "next/image";
+import DeleteButton from "../ui/buttons/delete-button";
 import { Card, CardContent, CardHeader, CardTitle } from "../ui/card";
 import SyntheseService from "./synthese-service";
 
@@ -8,6 +9,8 @@ type CardDescriptionServicesProps = {
   imageUrl: string;
   alt: string;
   synthese?: string[] | null;
+  onDelete?: () => void;
+  isAdmin?: boolean;
 };
 export default function CardDescriptionServices({
   title,
@@ -15,6 +18,8 @@ export default function CardDescriptionServices({
   imageUrl,
   alt,
   synthese,
+  isAdmin,
+  onDelete,
 }: CardDescriptionServicesProps) {
   return (
     <Card className="py-8 px-2 rounded-xl transition-all duration-300 transform hover:-translate-y-2 shadow-[0_4px_24px_rgba(0,0,0,0.25)] hover:shadow-[0_8px_32px_rgba(0,0,0,0.35)]">
@@ -34,6 +39,11 @@ export default function CardDescriptionServices({
         <div className="flex justify-center">
           <SyntheseService synthese={synthese} />
         </div>
+        {isAdmin && onDelete && (
+          <div className="flex mt-4 justify-end">
+            <DeleteButton onClick={onDelete} />
+          </div>
+        )}
       </CardContent>
     </Card>
   );

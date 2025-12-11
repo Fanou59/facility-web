@@ -1,5 +1,4 @@
 import PageContainer from "@/components/layout/page-container";
-import CardDescriptionServices from "@/components/shared/card-description-services";
 import Section from "@/components/shared/section";
 import { prisma } from "@/lib/connect";
 // import { detailServices } from "@/data/detail-service";
@@ -7,10 +6,12 @@ import { prisma } from "@/lib/connect";
 // il faut remplacer detailService par service
 
 import ContactSection from "@/components/pages/contact/contact-section";
-import PlusAddService from "@/components/shared/plus-add-service";
 import { auth } from "@/lib/auth";
 import { JsonValue } from "@prisma/client/runtime/library";
 import { headers } from "next/headers";
+
+import ReactQueryProvider from "@/components/providers/react-query-provider";
+import ServicesGrid from "@/components/shared/services-grid";
 
 type Service = {
   id: number;
@@ -41,9 +42,10 @@ export default async function MesServices() {
         title="Mon expertise au service de votre croissance"
         bgColor="bg-slate-100"
       >
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-8">
+        {/* <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-8">
           {detailServices.map((detailService) => (
             // il faut ajouter l'affichage du bouton delete et/ou modifier si connection admin
+            //TODO:
             <CardDescriptionServices
               key={detailService.id}
               title={detailService.title}
@@ -58,7 +60,10 @@ export default async function MesServices() {
               <PlusAddService />
             </div>
           )}
-        </div>
+        </div> */}
+        <ReactQueryProvider>
+          <ServicesGrid isAdmin={!!session} />
+        </ReactQueryProvider>
       </Section>
       <ContactSection />
     </PageContainer>
