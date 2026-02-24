@@ -21,7 +21,7 @@ export default function Footer() {
             </a> */}
           </div>
           <p className="mt-4">
-            &copy; 2025 Product-axis. Tous droits réservés.
+            &copy; 2026 Product-axis. Tous droits réservés.
           </p>
         </div>
       </footer>
